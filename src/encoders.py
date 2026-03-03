@@ -110,3 +110,37 @@ class PromptEncoder:
             },
             'ordering': ordering.tolist()
         }
+
+
+def create_test_structure() -> PromptStructure:
+    """
+    Helper: create a simple test structure
+    """
+    return PromptStructure(
+        has_instruction=True,
+        has_examples=True,
+        has_constraints=False,
+        has_style=True,
+        has_context=False,
+        num_examples=0.3,  
+        instruction_length=0.254, 
+        total_tokens=0.487,
+        component_ordering=[1, 2, 4, 3, 5]
+    )
+
+if __name__ == "__main__":
+    encoder = PromptEncoder()
+    test_structure = create_test_structure()
+    
+    # Encode
+    vector = encoder.encode(test_structure)
+    print(f"Encoded vector shape: {vector.shape}")
+    print(f"Vector: {vector}")
+    
+    # Decode
+    decoded = encoder.decode_partial(vector)
+    print(f"\nDecoded:")
+    for key, value in decoded.items():
+        print(f"  {key}: {value}")
+    
+    print("True")
