@@ -96,3 +96,32 @@ class BayesianPromptOptimiser:
         self.X_observed = []
         self.y_observed = []
         self.structures_tested = []
+
+    def random_structure(self) -> PromptStructure:
+        """
+        Generate random prompt structure for initialization
+        """
+
+        has_instruction = np.random.rand() > 0.1 
+        has_examples = np.random.rand() > 0.3
+        has_constraints = np.random.rand() > 0.5
+        has_style = np.random.rand() > 0.5
+        has_context = np.random.rand() > 0.7
+        
+        num_examples = np.random.rand()
+        instruction_length = np.random.rand()
+        total_tokens = np.random.rand() * 0.8 + 0.2 
+        
+        component_ordering = np.random.permutation([1, 2, 3, 4, 5]).tolist()
+        
+        return PromptStructure(
+            has_instruction=has_instruction,
+            has_examples=has_examples,
+            has_constraints=has_constraints,
+            has_style=has_style,
+            has_context=has_context,
+            num_examples=num_examples,
+            instruction_length=instruction_length,
+            total_tokens=total_tokens,
+            component_ordering=component_ordering
+        )
