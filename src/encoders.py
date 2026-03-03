@@ -31,7 +31,7 @@ class PromptStructure:
         """Validate structure"""
         assert 0 <= self.num_examples <= 1
         assert 0 <= self.instruction_length <= 1
-        assert - <= self.total_tokens <= 1
+        assert 0 <= self.total_tokens <= 1
         assert len(self.component_ordering) == 5
 
 class PromptEncoder:
@@ -42,7 +42,7 @@ class PromptEncoder:
     def __init__(self):
         self.encoding_dim = 14
     
-    def encode(self, structure: PromptStructure) - np.ndarray:
+    def encode(self, structure: PromptStructure) -> np.ndarray:
         """
         Convert PromptStructure to vector
 
@@ -55,22 +55,26 @@ class PromptEncoder:
             float(structure.has_instruction),
             float(structure.has_examples),
             float(structure.has_constraints),
-            float(structure.has_style)
-            float(structure.has_context)
+            float(structure.has_style),
+            float(structure.has_context),
         ])
 
         # Continuous
+        num_components = sum([
+            structure.has_instruction,
+            structure.has_examples,
+            structure.has_constraints,
+            structure.has_style,
+            structure.has_context
+        ])
+
+        avg_component_len = structure.total_tokens / num_components if num_components > 0 else 0.0
+
         continuous = np.array([
             structure.num_examples,
             structure.instruction_length,
             structure.total_tokens,
-            structure.total_tokens / (len([c for c in [
-                structure.has_instruction,
-                structure.has_examples,
-                structure.has_constraints,
-                structure.has_style,
-                structure.has_context
-            ] if c]) or 1) avg component length
+            avg_component_len
         ])
 
         # Ordering
