@@ -34,3 +34,50 @@ class PromptStructure:
         assert - <= self.total_tokens <= 1
         assert len(self.component_ordering) == 5
 
+class PromptEncoder:
+    """
+    Encode prompt structures as fixed-length vectors
+    """
+
+    def __init__(self):
+        self.encoding_dim = 14
+    
+    def encode(self, structure: PromptStructure) - np.ndarray:
+        """
+        Convert PromptStructure to vector
+
+        Returns: 
+            vector (14,)
+        """
+
+        # Categorical
+        categorical = np.array([
+            float(structure.has_instruction),
+            float(structure.has_examples),
+            float(structure.has_constraints),
+            float(structure.has_style)
+            float(structure.has_context)
+        ])
+
+        # Continuous
+        continuous = np.array([
+            structure.num_examples,
+            structure.instruction_length,
+            structure.total_tokens,
+            structure.total_tokens / (len([c for c in [
+                structure.has_instruction,
+                structure.has_examples,
+                structure.has_constraints,
+                structure.has_style,
+                structure.has_context
+            ] if c]) or 1) avg component length
+        ])
+
+        # Ordering
+        ordering = np.array(structure.component_ordering, dtype=float)
+
+        vector = np.concatenate([categorical, continuous, ordering])
+        
+        assert vector.shape == (self.encoding_dim,), f"Expected {self.encoding_dim}D, got {vector.shape}"
+        
+        return vector
