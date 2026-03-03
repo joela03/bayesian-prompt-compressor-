@@ -65,3 +65,34 @@ Score Statistics:
   - Max:    {max(self.all_scores):.3f}
 {'='*60}
 """
+
+class BayesianPromptOptimiser:
+    """
+    BO with RBF kernel
+    """
+
+    def __init__(
+        self,
+        encoder: PromptEncoder,
+        evaluator: MockEvaluator,
+        config: Optional[OptimisationConfig] = None
+    ):
+        
+        self.encoder = encoder
+        self.evaluator = evaluator
+        self.config = config or OptimisationConfig()
+
+        np.random.seed(self.config.random_seed)
+        
+        # GP with simple RBF kernel
+        kernel = ConstantKernel(1.0) * RBF(length_scale=1.0)
+        self.gp = GaussianProcessRegressor(
+            kernel=kernel,
+            alpha=0.01,
+            n_restarts_optimizer=5,
+            random_state=self.config,random_seed
+        )
+
+        self.X_observed = []
+        self.y_observed = []
+        self.structures_tested = []
