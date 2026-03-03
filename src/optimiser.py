@@ -125,3 +125,30 @@ class BayesianPromptOptimiser:
             total_tokens=total_tokens,
             component_ordering=component_ordering
         )
+
+        def ucb_acquisition(self, X_candidates: np.ndarray, beta: Optional[float] = None) -> int:
+            """
+            Upper Confidence Bound acquisition function
+            
+            Args:
+                X_candidates: Array of candidate vectors (n_candidates, dim)
+                beta: Exploration parameter
+            
+            Returns:
+                index of best candidate
+            """
+            if beta is None:
+                beta = self.config.beta
+            
+            # return random candidate if no data
+            if len(self.X_observed) == 0:
+                return np.random.randint(len(X_candidates))
+            
+            # GP predictions
+            mu, sigma = self.gp.predict(X_candidates, return_std=True)
+            
+            # UCB = mean + beta * std
+            ucb_values = mu + beta * sigma
+            
+            # Return index of maximum UCB
+            return np.argmax(ucb_values)    
