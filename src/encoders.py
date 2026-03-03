@@ -81,3 +81,28 @@ class PromptEncoder:
         assert vector.shape == (self.encoding_dim,), f"Expected {self.encoding_dim}D, got {vector.shape}"
         
         return vector
+
+    def decode_partial(self, vector: np.ndarray) -> Dict:
+        """
+        Shows what a vector represents
+        """
+        categorical = vector[:5]
+        continuous = vector[5:9]
+        ordering = vector[9:14]
+        
+        return {
+            'categorical': {
+                'has_instruction': bool(categorical[0]),
+                'has_examples': bool(categorical[1]),
+                'has_constraints': bool(categorical[2]),
+                'has_style': bool(categorical[3]),
+                'has_context': bool(categorical[4])
+            },
+            'continuous': {
+                'num_examples': continuous[0],
+                'instruction_length': continuous[1],
+                'total_tokens': continuous[2],
+                'avg_component_len': continuous[3]
+            },
+            'ordering': ordering.tolist()
+        }
