@@ -3,7 +3,7 @@ Encode prompt structures as vectors for Gaussian Process
 """
 
 import numpy as np
-from dataclassess import dataclassess
+from dataclasses import dataclass
 from typing import List
 
 @dataclass
@@ -21,7 +21,7 @@ class PromptStructure:
 
     # Continuous
     num_examples: float # 0 - 10 but we normalise to 0-1
-    instruction: float #tokens, normalised 
+    instruction_length: float #tokens, normalised 
     total_tokens: float #normalised
 
     # Sequential (positions 1 - 5)
