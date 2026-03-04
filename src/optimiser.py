@@ -6,10 +6,11 @@ from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import RBF, ConstantKernel
 from typing import List, Tuple, Callable
 import matplotlib.pyplot as pyplot
+import numpy as np
 
 from dataclasses import dataclass, field
 
-from encoders import PromptStructure
+from encoders import PromptStructure, PromptEncoder
 from evaluators import MockEvaluator
 
 class BayesianPromptOptimiser:
