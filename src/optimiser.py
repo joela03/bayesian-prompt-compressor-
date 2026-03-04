@@ -40,7 +40,7 @@ class OptimisationResult:
     def summary(self) -> str:
         """Print-friendly summary"""
         return f"""
-Optimization Results:
+Optimisation Results:
 {'='*60}
 Best Score: {self.best_score:.3f}
 Total Evaluations: {self.total_evaluations}
@@ -99,7 +99,7 @@ class BayesianPromptOptimiser:
 
     def random_structure(self) -> PromptStructure:
         """
-        Generate random prompt structure for initialization
+        Generate random prompt structure for initialisation
         """
 
         has_instruction = np.random.rand() > 0.1 
@@ -152,3 +152,87 @@ class BayesianPromptOptimiser:
             
             # Return index of maximum UCB
             return np.argmax(ucb_values)    
+
+        def optimise(self) -> OptimisationResult:
+            """
+            Run Bayesian Optimisation using config 
+
+            Return:
+                OptimisationResult with all details
+            """
+
+            cfg = self.config
+
+            print(f"Starting Bayesian Optimisation...")
+            print(f"  Initialisation: {cfg.n_init} random points")
+            print(f"  BO iterations: {cfg.n_iterations}")
+            print(f"  Total evaluations: {cfg.n_init + cfg.n_iterations}")
+            print(f"  UCB beta: {cfg.beta}")
+            print(f"  Random seed: {cfg.random_seed}\n")
+
+            # PHASE 1: Random initialisation
+            print("Random Initialisation")
+            for i in range(cfg.n_init):
+                structure = self.random_structure()
+                vector = self.encoder.encode(structure)
+                score = self.evaluator.evaluate(structure)
+                
+                self.X_observed.append(vector)
+                self.y_observed.append(score)
+                self.structures_tested.append(structure)
+                
+                print(f"  Init {i+1}/{cfg.n_init}: score = {score:.3f}")
+
+            # Fit initial GP
+            X = np.array(self.X_observed)
+            y = np.array(self.y_observed)
+            self.gp.fit(X, y)
+
+            print(f"\Bayesian Optimisation")
+
+            
+            # PHASE 2: BO iterations
+            for i in range(cfg.n_iterations):
+                # Generate candidate structures
+                candidates = [self.random_structure() for _ in range(cfg.n_candidates)]
+                candidate_vectors = np.array([self.encoder.encode(s) for s in candidates])
+                
+                # Acquisition function selects best candidate
+                best_idx = self.ucb_acquisition(candidate_vectors)
+                next_structure = candidates[best_idx]
+                next_vector = candidate_vectors[best_idx]
+                
+                # Evaluate
+                score = self.evaluator.evaluate(next_structure)
+                
+                # Update observations
+                self.X_observed.append(next_vector)
+                self.y_observed.append(score)
+                self.structures_tested.append(next_structure)
+                
+                # Update GP
+                X = np.array(self.X_observed)
+                y = np.array(self.y_observed)
+                self.gp.fit(X, y)
+                
+                # Get current best
+                best_score_so_far = max(self.y_observed)
+                
+                print(f"  Iter {i+1}/{cfg.n_iterations}: score = {score:.3f} | best so far = {best_score_so_far:.3f}")
+            
+            # Build result
+            best_idx = np.argmax(self.y_observed)
+            
+            result = OptimisationResult(
+                best_structure=self.structures_tested[best_idx],
+                best_score=self.y_observed[best_idx],
+                all_scores=self.y_observed.copy(),
+                all_structures=self.structures_tested.copy(),
+                total_evaluations=len(self.y_observed)
+            )
+            
+            print(f"\nOptimisation complete")
+            print(f"  Best score: {result.best_score:.3f}")
+            print(f"  Total evaluations: {result.total_evaluations}")
+            
+            return result
