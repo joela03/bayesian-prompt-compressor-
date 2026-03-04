@@ -32,7 +32,7 @@ class OptimisationResult:
     """Result of optimisation run"""
 
     best_structure: PromptStructure
-    best_score: floatall_scores: List[float]
+    best_score: float
     all_scores: List[float]
     all_structures: List[PromptStructure]
     total_evaluation: int
@@ -90,7 +90,7 @@ class BayesianPromptOptimiser:
             kernel=kernel,
             alpha=0.01,
             n_restarts_optimizer=5,
-            random_state=self.config,random_seed
+            random_state=self.config,random_seed,
         )
 
         self.X_observed = []
@@ -236,3 +236,86 @@ class BayesianPromptOptimiser:
             print(f"  Total evaluations: {result.total_evaluations}")
             
             return result
+
+    def plot_progress(self, result: OptimisationResult, save_path: Optional[str] = None):
+        """
+        Visualise optimisation progress
+        
+        Args:
+            result: OptimisationResult from optimise()
+            save_path: Optional path to save plot
+        """
+        scores = result.all_scores
+        
+        plt.figure(figsize=(12, 4))
+        
+        # Plot 1: Scores over time
+        plt.subplot(1, 3, 1)
+        plt.plot(scores, 'o-', alpha=0.6, label='Observed', markersize=4)
+        
+        # Running best
+        running_best = [max(scores[:i+1]) for i in range(len(scores))]
+        plt.plot(running_best, 'r-', linewidth=2, label='Best so far')
+        
+        plt.xlabel('Iteration')
+        plt.ylabel('Score')
+        plt.title('Optimisation Progress')
+        plt.legend()
+        plt.grid(True, alpha=0.3)
+        
+        # Plot 2: Score distribution
+        plt.subplot(1, 3, 2)
+        plt.hist(scores, bins=20, alpha=0.7, edgecolor='black')
+        plt.axvline(max(scores), color='r', linestyle='--', linewidth=2, label='Best')
+        plt.axvline(np.mean(scores), color='g', linestyle='--', linewidth=2, label='Mean')
+        plt.xlabel('Score')
+        plt.ylabel('Count')
+        plt.title('Score Distribution')
+        plt.legend()
+        plt.grid(True, alpha=0.3)
+        
+        # Plot 3: Improvement over iterations
+        plt.subplot(1, 3, 3)
+        improvements = [running_best[i] - running_best[0] for i in range(len(running_best))]
+        plt.plot(improvements, 'g-', linewidth=2)
+        plt.fill_between(range(len(improvements)), 0, improvements, alpha=0.3)
+        plt.xlabel('Iteration')
+        plt.ylabel('Improvement from Initial')
+        plt.title('Cumulative Improvement')
+        plt.grid(True, alpha=0.3)
+        
+        plt.tight_layout()
+        
+        if save_path:
+            plt.savefig(save_path, dpi=150, bbox_inches='tight')
+            print(f"Plot saved to: {save_path}")
+        
+        plt.show()
+
+if __name__ == "__main__":
+    import os
+    
+    # Create results directory if it doesn't exist
+    os.makedirs('data/results', exist_ok=True)
+    
+    # Setup with dataclass config
+    config = OptimisationConfig(
+        n_iterations=20,
+        n_init=10,
+        beta=2.0,
+        n_candidates=100,
+        random_seed=42
+    )
+    
+    encoder = PromptEncoder()
+    evaluator = MockEvaluator(noise_level=0.05)
+    optimiser = BayesianPromptOptimiser(encoder, evaluator, config)
+    
+    # Run optimisation
+    result = optimiser.optimise()
+    
+    # Print summary
+    print(result.summary())
+    
+    # Plot
+    optimiser.plot_progress(result, save_path='data/results/v0_optimisation_progress.png')
