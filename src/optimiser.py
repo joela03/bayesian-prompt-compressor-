@@ -127,116 +127,116 @@ class BayesianPromptOptimiser:
             component_ordering=component_ordering
         )
 
-        def ucb_acquisition(self, X_candidates: np.ndarray, beta: Optional[float] = None) -> int:
-            """
-            Upper Confidence Bound acquisition function
-            
-            Args:
-                X_candidates: Array of candidate vectors (n_candidates, dim)
-                beta: Exploration parameter
-            
-            Returns:
-                index of best candidate
-            """
-            if beta is None:
-                beta = self.config.beta
-            
-            # return random candidate if no data
-            if len(self.X_observed) == 0:
-                return np.random.randint(len(X_candidates))
-            
-            # GP predictions
-            mu, sigma = self.gp.predict(X_candidates, return_std=True)
-            
-            # UCB = mean + beta * std
-            ucb_values = mu + beta * sigma
-            
-            # Return index of maximum UCB
-            return np.argmax(ucb_values)    
+    def ucb_acquisition(self, X_candidates: np.ndarray, beta: Optional[float] = None) -> int:
+        """
+        Upper Confidence Bound acquisition function
+        
+        Args:
+            X_candidates: Array of candidate vectors (n_candidates, dim)
+            beta: Exploration parameter
+        
+        Returns:
+            index of best candidate
+        """
+        if beta is None:
+            beta = self.config.beta
+        
+        # return random candidate if no data
+        if len(self.X_observed) == 0:
+            return np.random.randint(len(X_candidates))
+        
+        # GP predictions
+        mu, sigma = self.gp.predict(X_candidates, return_std=True)
+        
+        # UCB = mean + beta * std
+        ucb_values = mu + beta * sigma
+        
+        # Return index of maximum UCB
+        return np.argmax(ucb_values)    
 
-        def optimise(self) -> OptimisationResult:
-            """
-            Run Bayesian Optimisation using config 
+    def optimise(self) -> OptimisationResult:
+        """
+        Run Bayesian Optimisation using config 
 
-            Return:
-                OptimisationResult with all details
-            """
+        Return:
+            OptimisationResult with all details
+        """
 
-            cfg = self.config
+        cfg = self.config
 
-            print(f"Starting Bayesian Optimisation...")
-            print(f"  Initialisation: {cfg.n_init} random points")
-            print(f"  BO iterations: {cfg.n_iterations}")
-            print(f"  Total evaluations: {cfg.n_init + cfg.n_iterations}")
-            print(f"  UCB beta: {cfg.beta}")
-            print(f"  Random seed: {cfg.random_seed}\n")
+        print(f"Starting Bayesian Optimisation...")
+        print(f"  Initialisation: {cfg.n_init} random points")
+        print(f"  BO iterations: {cfg.n_iterations}")
+        print(f"  Total evaluations: {cfg.n_init + cfg.n_iterations}")
+        print(f"  UCB beta: {cfg.beta}")
+        print(f"  Random seed: {cfg.random_seed}\n")
 
-            # PHASE 1: Random initialisation
-            print("Random Initialisation")
-            for i in range(cfg.n_init):
-                structure = self.random_structure()
-                vector = self.encoder.encode(structure)
-                score = self.evaluator.evaluate(structure)
-                
-                self.X_observed.append(vector)
-                self.y_observed.append(score)
-                self.structures_tested.append(structure)
-                
-                print(f"  Init {i+1}/{cfg.n_init}: score = {score:.3f}")
+        # PHASE 1: Random initialisation
+        print("Random Initialisation")
+        for i in range(cfg.n_init):
+            structure = self.random_structure()
+            vector = self.encoder.encode(structure)
+            score = self.evaluator.evaluate(structure)
+            
+            self.X_observed.append(vector)
+            self.y_observed.append(score)
+            self.structures_tested.append(structure)
+            
+            print(f"  Init {i+1}/{cfg.n_init}: score = {score:.3f}")
 
-            # Fit initial GP
+        # Fit initial GP
+        X = np.array(self.X_observed)
+        y = np.array(self.y_observed)
+        self.gp.fit(X, y)
+
+        print(f"\Bayesian Optimisation")
+
+        
+        # PHASE 2: BO iterations
+        for i in range(cfg.n_iterations):
+            # Generate candidate structures
+            candidates = [self.random_structure() for _ in range(cfg.n_candidates)]
+            candidate_vectors = np.array([self.encoder.encode(s) for s in candidates])
+            
+            # Acquisition function selects best candidate
+            best_idx = self.ucb_acquisition(candidate_vectors)
+            next_structure = candidates[best_idx]
+            next_vector = candidate_vectors[best_idx]
+            
+            # Evaluate
+            score = self.evaluator.evaluate(next_structure)
+            
+            # Update observations
+            self.X_observed.append(next_vector)
+            self.y_observed.append(score)
+            self.structures_tested.append(next_structure)
+            
+            # Update GP
             X = np.array(self.X_observed)
             y = np.array(self.y_observed)
             self.gp.fit(X, y)
-
-            print(f"\Bayesian Optimisation")
-
             
-            # PHASE 2: BO iterations
-            for i in range(cfg.n_iterations):
-                # Generate candidate structures
-                candidates = [self.random_structure() for _ in range(cfg.n_candidates)]
-                candidate_vectors = np.array([self.encoder.encode(s) for s in candidates])
-                
-                # Acquisition function selects best candidate
-                best_idx = self.ucb_acquisition(candidate_vectors)
-                next_structure = candidates[best_idx]
-                next_vector = candidate_vectors[best_idx]
-                
-                # Evaluate
-                score = self.evaluator.evaluate(next_structure)
-                
-                # Update observations
-                self.X_observed.append(next_vector)
-                self.y_observed.append(score)
-                self.structures_tested.append(next_structure)
-                
-                # Update GP
-                X = np.array(self.X_observed)
-                y = np.array(self.y_observed)
-                self.gp.fit(X, y)
-                
-                # Get current best
-                best_score_so_far = max(self.y_observed)
-                
-                print(f"  Iter {i+1}/{cfg.n_iterations}: score = {score:.3f} | best so far = {best_score_so_far:.3f}")
+            # Get current best
+            best_score_so_far = max(self.y_observed)
             
-            # Build result
-            best_idx = np.argmax(self.y_observed)
-            
-            result = OptimisationResult(
-                best_structure=self.structures_tested[best_idx],
-                best_score=self.y_observed[best_idx],
-                all_scores=self.y_observed.copy(),
-                all_structures=self.structures_tested.copy(),
-                total_evaluations=len(self.y_observed)
-            )
-            
-            print(f"\nOptimisation complete")
-            print(f"  Best score: {result.best_score:.3f}")
-            print(f"  Total evaluations: {result.total_evaluations}")
-            
-            return result
+            print(f"  Iter {i+1}/{cfg.n_iterations}: score = {score:.3f} | best so far = {best_score_so_far:.3f}")
+        
+        # Build result
+        best_idx = np.argmax(self.y_observed)
+        
+        result = OptimisationResult(
+            best_structure=self.structures_tested[best_idx],
+            best_score=self.y_observed[best_idx],
+            all_scores=self.y_observed.copy(),
+            all_structures=self.structures_tested.copy(),
+            total_evaluations=len(self.y_observed)
+        )
+        
+        print(f"\nOptimisation complete")
+        print(f"  Best score: {result.best_score:.3f}")
+        print(f"  Total evaluations: {result.total_evaluations}")
+        
+        return result
 
     def plot_progress(self, result: OptimisationResult, save_path: Optional[str] = None):
         """
