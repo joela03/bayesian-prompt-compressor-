@@ -162,4 +162,87 @@ class PromptParser:
             component_ordering=ordering
         )
         
-        return structure, components    
+        return structure, components
+
+class PromptBuilder:
+    """
+    Convert PromptStructure → text prompt
+    
+    Opposite of PromptParser
+    """
+    
+    def __init__(self):
+        pass
+    
+    def build(self, structure: PromptStructure, components: Dict) -> str:
+        """
+        Build text prompt from structure and components
+        
+        Args:
+            structure: PromptStructure specifying what to include
+            components: Dict with actual text for each component
+        
+        Returns:
+            prompt_text: Reconstructed prompt
+        """
+        # Map ordering codes to component names
+        comp_names = {
+            1: 'instruction',
+            2: 'examples',
+            3: 'constraints',
+            4: 'style',
+            5: 'context'
+        }
+        
+        # Build prompt in specified order
+        sections = []
+        
+        for pos in structure.component_ordering:
+            comp_name = comp_names[pos]
+            
+            # Check if this component should be included
+            include = getattr(structure, f'has_{comp_name}')
+            
+            if include and comp_name in components and components[comp_name]:
+                # Add component text
+                comp_text = ' '.join(components[comp_name])
+                
+                # Apply compression based on structure parameters
+                if comp_name == 'examples':
+                    # Limit number of examples
+                    n_examples_keep = int(structure.num_examples * 10)
+                    if n_examples_keep < len(components[comp_name]):
+                        comp_text = ' '.join(components[comp_name][:n_examples_keep])
+                
+                elif comp_name == 'instruction':
+                    # Potentially shorten instruction
+                    if structure.instruction_length < 0.5:
+                        # Make more concise
+                        comp_text = self._compress_text(comp_text, ratio=structure.instruction_length)
+                
+                sections.append(comp_text)
+        
+        # Join sections
+        prompt_text = '\n\n'.join(sections)
+        
+        return prompt_text
+    
+    def _compress_text(self, text: str, ratio: float) -> str:
+        """
+        Simple text compression (keep first and last sentences)
+        """
+        sentences = text.split('.')
+        sentences = [s.strip() for s in sentences if s.strip()]
+        
+        if len(sentences) <= 2:
+            return text
+        
+        n_keep = max(1, int(len(sentences) * ratio))
+        
+        # Keep first and last
+        if n_keep == 1:
+            kept = [sentences[0]]
+        else:
+            kept = [sentences[0]] + [sentences[-1]]
+        
+        return '. '.join(kept) + '.'
