@@ -90,7 +90,7 @@ class BayesianPromptOptimiser:
             kernel=kernel,
             alpha=0.01,
             n_restarts_optimizer=5,
-            random_state=self.config,random_seed,
+            random_state=self.config.random_seed,
         )
 
         self.X_observed = []
