@@ -5,7 +5,7 @@ The actual Bayesian Optimiser
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import RBF, ConstantKernel
 from typing import List, Tuple, Callable
-import matplotlip.pyplot as pyplot
+import matplotlib.pyplot as pyplot
 
 from dataclasses import dataclass, field
 
