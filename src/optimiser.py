@@ -9,8 +9,8 @@ import matplotlib.pyplot as pyplot
 
 from dataclasses import dataclass, field
 
-from src.encoders import PromptStructure
-from src.evaluators import MockEvaluator
+from encoders import PromptStructure
+from evaluators import MockEvaluator
 
 class BayesianPromptOptimiser:
     """
@@ -23,7 +23,7 @@ class OptimisationConfig:
 
     n_iterations: int = 30
     n_init: int = 10
-    bet: float = 2.0
+    beta: float = 2.0
     n_candidates: int = 100
     random_seed: int = 42
 
