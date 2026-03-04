@@ -111,4 +111,55 @@ class PromptParser:
                 ordering.append(comp_code)
         
         return ordering
+
+    def parse(self, prompt_text:str) -> Tuple[PromptStructure, Dict]:
+        """
+        Parse text prompt into structure
+
+        Returns:
+            structure: PromptStructure object
+            components: Dict with text of each component
+        """
+
+        # Split into sentences
+        sentences = self._split_sentences(prompt_text)
+
+        # Classify each sentence
+        components = {
+            'instruction': [],
+            'examples': [],
+            'constraints': [],
+            'style': [],
+            'context': []
+        }
         
+        for sentence in sentences:
+            comp_type = self._classify_sentence(sentence)
+            components[comp_type].append(sentence)
+        
+        # Count tokens (rough approximation)
+        total_tokens = len(prompt_text.split())
+        
+        # Compute normalised values
+        num_examples = len(components['examples'])
+        instruction_length = sum(len(s.split()) for s in components['instruction'])
+        
+        # Determine ordering from original prompt
+        ordering = self._determine_ordering(prompt_text, components)
+        
+        # Create structure
+        structure = PromptStructure(
+            has_instruction=len(components['instruction']) > 0,
+            has_examples=len(components['examples']) > 0,
+            has_constraints=len(components['constraints']) > 0,
+            has_style=len(components['style']) > 0,
+            has_context=len(components['context']) > 0,
+            
+            num_examples=min(num_examples / 10.0, 1.0),
+            instruction_length=min(instruction_length / 200.0, 1.0),
+            total_tokens=min(total_tokens / 500.0, 1.0),
+            
+            component_ordering=ordering
+        )
+        
+        return structure, components    
