@@ -36,7 +36,7 @@ class OptimisationResult:
     best_score: float
     all_scores: List[float]
     all_structures: List[PromptStructure]
-    total_evaluation: int
+    total_evaluations: int
 
     def summary(self) -> str:
         """Print-friendly summary"""
