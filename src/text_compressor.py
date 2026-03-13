@@ -49,3 +49,29 @@ class TextCompressor:
         compressed = re.sub(r'\s*\.\s*', '. ', compressed)
         
         return compressed.strip()
+
+    def compress_examples(self, examples: List[str], target_count: int = 2) -> List[str]:
+        """
+        Reduce number and length of examples
+        
+        Args:
+            examples: List of example texts
+            target_count: How many examples to keep
+        
+        Returns:
+            Compressed examples
+        """
+            # Keep only target_count examples
+            kept = examples[:target_count]
+            
+            compressed = []
+            for ex in kept:
+                # Split by period and keep first sentence
+                sentences = ex.split('.')
+                if sentences:
+                    first_sentence = sentences[0].strip()
+                    if first_sentence:
+                        compressed.append(first_sentence + '.')
+            
+            return compressed
+    
