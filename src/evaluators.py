@@ -1,12 +1,18 @@
 """
 Evaluate prompt performance
 """
-import os
 import numpy as np
 from encoders import PromptStructure, create_test_structure
 import time
 from typing import Dict
 import openai
+
+from dotenv import load_dotenv
+import os
+from pathlib import Path
+
+env_path = Path(__file__).parent.parent / '.env'
+load_dotenv(dotenv_path=env_path)
 
 class MockEvaluator:
     """
@@ -212,8 +218,8 @@ class RealEvaluator:
             response = self.client.chat.completions.create(
                 model=self.model,
                 messages=[
-                    {"role": "system", "content": structure},
-                    {"role": "user", "content": test_query}
+                    {"role": "system", "content": prompt_text},
+                    {"role": "user", "content": query}
                 ],
                 max_tokens=300,
                 temperature=0.7
@@ -239,7 +245,7 @@ class RealEvaluator:
             print(f"Error: {e}")
             return None
 
-    def _compute_quality_metrics(self, answer, query, reference):
+    def compute_quality_metrics(self, answer, query, reference):
         """
         Compute quality scores
         """
@@ -262,17 +268,17 @@ class RealEvaluator:
         metrics['conciseness'] = conciseness_score
         
         #Structure
-        structure_score = 0.0
+        answer_structure_score = 0.0
         if answer and answer[0].isupper():
-            structure_score += 0.3
+            answer_structure_score += 0.3
         if any(p in answer for p in ['.', '!', '?']):
-            structure_score += 0.3
+            answer_structure_score += 0.3
         sentences = answer.split('.')
         if len(sentences) >= 2:
-            structure_score += 0.2
+            answer_structure_score += 0.2
         if '\n' in answer:  # Has paragraphs
-            structure_score += 0.2
-        metrics['structure'] = min(structure_score, 1.0)
+            answer_structure_score += 0.2
+        metrics['structure'] = min(answer_structure_score, 1.0)
         
         # 4. If we have reference, compute similarity
         if reference:
