@@ -74,4 +74,47 @@ class TextCompressor:
                         compressed.append(first_sentence + '.')
             
             return compressed
-    
+
+    def compress_constraints(self, constraints: str, aggressiveness: float = 0.5) -> str:
+        """
+        Compress constraints to keywords
+        
+        Args:
+            constraints: Original constraints text
+            aggressiveness: How much to compress
+        
+        Returns:
+            Compressed constraints
+        """
+        # Extract bullet points or numbered items
+        bullets = re.findall(r'[-•]\s*(.+?)(?:\n|$)', constraints)
+        numbers = re.findall(r'\d+[.)]\s*(.+?)(?:\n|$)', constraints)
+        
+        items = bullets + numbers
+        
+        if items:
+            # Compress each item
+            compressed = []
+            for item in items:
+                # Remove filler
+                item = re.sub(r'\b(please|should|must|always|never)\b', '', item, flags=re.IGNORECASE)
+                item = item.strip()
+                if len(item) > 0:
+                    compressed.append(item)
+            
+            # If aggressive, take only first half
+            if aggressiveness > 0.6 and len(compressed) > 2:
+                n = max(2, len(compressed) // 2)
+                compressed = compressed[:n]
+            
+            return '\n'.join(f"- {item}" for item in compressed)
+        
+        # No bullets found, just remove filler
+        compressed = constraints
+        if aggressiveness > 0.4:
+            filler = ['please', 'should', 'must', 'always', 'never']
+            for word in filler:
+                compressed = re.sub(rf'\b{word}\b', '', compressed, flags=re.IGNORECASE)
+        
+        compressed = re.sub(r'\s+', ' ', compressed)
+        return compressed.strip()
