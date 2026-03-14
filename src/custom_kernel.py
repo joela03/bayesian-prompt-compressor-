@@ -42,6 +42,14 @@ class PromptStructureKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel
         self.ordering_weight = ordering_weight
         self.length_scale = length_scale
         self.use_p3_weights = use_p3_weights
+
+        self.feature_weights = {
+            'has_instruction': 1.0,
+            'has_examples': 1.0,
+            'has_constraints': 1.0,
+            'has_style': 1.0,
+            'has_context': 1.0,
+        }
         
         # Load P3-derived feature importance if available
         if use_p3_weights:
@@ -71,16 +79,9 @@ class PromptStructureKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel
                 print(f"   {feat}: {weight:.2f}")
         else:
             # Default uniform weights
-            self.feature_weights = {
-                'has_instruction': 1.0,
-                'has_examples': 1.0,
-                'has_constraints': 1.0,
-                'has_style': 1.0,
-                'has_context': 1.0,
-            }
             print("P3 findings not found, using uniform weights")
 
-        def hamming_kernel(self, X1, X2):
+    def hamming_kernel(self, X1, X2):
         """
         Hamming kernel for categorical features (5D: has_instruction, etc.)
         
