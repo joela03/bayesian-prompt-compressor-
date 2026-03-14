@@ -4,8 +4,8 @@ Parse real text prompts into PromptStructure
 
 import re
 from typing import Dict, List, Tuple
-from encoders import PromptStructure
-from text_compressor import TextCompressor
+from src.encoders import PromptStructure
+from src.text_compressor import TextCompressor
 
 class PromptParser:
     """
