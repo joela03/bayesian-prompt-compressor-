@@ -12,6 +12,8 @@ Weighted by P3-derived feature importance
 import numpy as np
 from sklearn.gaussian_process.kernels import Kernel, StationaryKernelMixin, NormalizedKernelMixin
 from scipy.stats import kendalltau
+import json
+from pathlib import Path
 
 
 class PromptStructureKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
@@ -44,3 +46,36 @@ class PromptStructureKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel
         # Load P3-derived feature importance if available
         if use_p3_weights:
             self._load_p3_weights()
+
+    def _load_p3_weights(self):
+        """
+        Load feature importance from P3 analysis
+        """
+        findings_path = Path('data/results/p3_findings_adjusted.json')
+        
+        if findings_path.exists():
+            with open(findings_path, 'r') as f:
+                findings = json.load(f)
+            
+            # Extract component importance
+            self.feature_weights = {
+                'has_instruction': findings.get('instruction_importance', 0.95),
+                'has_examples': findings.get('examples_importance', 0.68),
+                'has_constraints': findings.get('constraints_importance', 0.39),
+                'has_style': findings.get('style_importance', 0.09),
+                'has_context': findings.get('context_importance', 0.06),
+            }
+            
+            print(f"Loaded P3 feature weights:")
+            for feat, weight in self.feature_weights.items():
+                print(f"   {feat}: {weight:.2f}")
+        else:
+            # Default uniform weights
+            self.feature_weights = {
+                'has_instruction': 1.0,
+                'has_examples': 1.0,
+                'has_constraints': 1.0,
+                'has_style': 1.0,
+                'has_context': 1.0,
+            }
+            print("P3 findings not found, using uniform weights")
