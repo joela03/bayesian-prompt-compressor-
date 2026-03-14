@@ -2,9 +2,10 @@
 Parse real text prompts into PromptStructure
 """
 
-import real
+import re
 from typing import Dict, List, Tuple
 from encoders import PromptStructure
+from text_compressor import TextCompressor
 
 class PromptParser:
     """
@@ -172,60 +173,91 @@ class PromptBuilder:
     """
     
     def __init__(self):
-        pass
+        """Initialize with TextCompressor"""
+        self.compressor = TextCompressor()
     
     def build(self, structure: PromptStructure, components: Dict) -> str:
         """
-        Build text prompt from structure and components
+        Build prompt with ACTUAL compression using TextCompressor
         
         Args:
-            structure: PromptStructure specifying what to include
-            components: Dict with actual text for each component
+            structure: PromptStructure with optimization results
+            components: Dict of component texts from parser
         
         Returns:
-            prompt_text: Reconstructed prompt
+            Compressed prompt text
         """
-        # Map ordering codes to component names
-        comp_names = {
-            1: 'instruction',
-            2: 'examples',
-            3: 'constraints',
-            4: 'style',
-            5: 'context'
-        }
-        
-        # Build prompt in specified order
         sections = []
+        
+        comp_names = {1: 'instruction', 2: 'examples', 3: 'constraints', 
+                      4: 'style', 5: 'context'}
         
         for pos in structure.component_ordering:
             comp_name = comp_names[pos]
-            
-            # Check if this component should be included
             include = getattr(structure, f'has_{comp_name}')
             
-            if include and comp_name in components and components[comp_name]:
-                # Add component text
-                comp_text = ' '.join(components[comp_name])
+            if not include or comp_name not in components:
+                continue
+            
+            comp_data = components[comp_name]
+            if not comp_data:
+                continue
+            
+            if comp_name == 'instruction':
+                # Get text
+                if isinstance(comp_data, list):
+                    text = ' '.join(comp_data)
+                else:
+                    text = comp_data
                 
-                # Apply compression based on structure parameters
-                if comp_name == 'examples':
-                    # Limit number of examples
-                    n_examples_keep = int(structure.num_examples * 10)
-                    if n_examples_keep < len(components[comp_name]):
-                        comp_text = ' '.join(components[comp_name][:n_examples_keep])
+                aggressiveness = 1 - structure.instruction_length
                 
-                elif comp_name == 'instruction':
-                    # Potentially shorten instruction
-                    if structure.instruction_length < 0.5:
-                        # Make more concise
-                        comp_text = self._compress_text(comp_text, ratio=structure.instruction_length)
+                compressed = self.compressor.compress_instruction(text, aggressiveness=aggressiveness)
+                sections.append(compressed)
+            
+            elif comp_name == 'examples':
+                target_count = max(1, int(structure.num_examples * 5))
                 
-                sections.append(comp_text)
+                if isinstance(comp_data, list):
+                    compressed = self.compressor.compress_examples(comp_data, target_count)
+                    if compressed:
+                        sections.append('\n'.join(compressed))
+                else:
+                    compressed = self.compressor.compress_examples([comp_data], target_count)
+                    if compressed:
+                        sections.append(compressed[0])
+            
+            elif comp_name == 'constraints':
+                if isinstance(comp_data, list):
+                    text = '\n'.join(comp_data)
+                else:
+                    text = comp_data
+                
+                compressed = self.compressor.compress_constraints(text, aggressiveness=0.5)
+                if compressed:
+                    sections.append(compressed)
+            
+            elif comp_name == 'style':
+                if isinstance(comp_data, list):
+                    text = ' '.join(comp_data)
+                else:
+                    text = comp_data
+                
+                compressed = self.compressor.compress_style(text, aggressiveness=0.8)
+                if compressed:
+                    sections.append(compressed)
+            
+            elif comp_name == 'context':
+                if isinstance(comp_data, list):
+                    text = ' '.join(comp_data)
+                else:
+                    text = comp_data
+                
+                compressed = self.compressor.compress_context(text, aggressiveness=0.6)
+                if compressed:
+                    sections.append(compressed)
         
-        # Join sections
-        prompt_text = '\n\n'.join(sections)
-        
-        return prompt_text
+        return '\n'.join(sections)
     
     def _compress_text(self, text: str, ratio: float) -> str:
         """
@@ -246,3 +278,62 @@ class PromptBuilder:
             kept = [sentences[0]] + [sentences[-1]]
         
         return '. '.join(kept) + '.'
+
+if __name__ == "__main__":
+    # Example prompt
+    test_prompt = """
+You are an expert AI assistant helping with research questions.
+
+When answering questions, please follow these guidelines:
+1. Be thorough and comprehensive
+2. Cite sources when possible
+3. Use clear, professional language
+
+For example, a good response starts with a direct answer, then provides supporting evidence.
+
+Constraints: Keep responses under 500 words. Avoid speculation.
+
+Style: Use an academic but accessible tone.
+"""
+    
+    print("="*70)
+    print("PROMPT PARSER TEST")
+    print("="*70)
+    
+    print("\nOriginal Prompt:")
+    print("-"*70)
+    print(test_prompt)
+    print("-"*70)
+    
+    # Parse
+    parser = PromptParser()
+    structure, components = parser.parse(test_prompt)
+    
+    print("\nParsed Structure:")
+    print(f"  has_instruction: {structure.has_instruction}")
+    print(f"  has_examples: {structure.has_examples}")
+    print(f"  has_constraints: {structure.has_constraints}")
+    print(f"  has_style: {structure.has_style}")
+    print(f"  has_context: {structure.has_context}")
+    print(f"  num_examples: {structure.num_examples:.2f}")
+    print(f"  total_tokens: {structure.total_tokens:.2f}")
+    print(f"  ordering: {structure.component_ordering}")
+    
+    print("\nComponent Texts:")
+    for comp_type, sentences in components.items():
+        if sentences:
+            print(f"\n{comp_type.upper()}:")
+            for sentence in sentences:
+                print(f"  - {sentence}")
+    
+    # Rebuild
+    print("\n" + "="*70)
+    builder = PromptBuilder()
+    rebuilt = builder.build(structure, components)
+    
+    print("\nRebuilt Prompt:")
+    print("-"*70)
+    print(rebuilt)
+    print("-"*70)
+    
+    print("\n✅ Parser and Builder work!")
