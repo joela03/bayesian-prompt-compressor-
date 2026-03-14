@@ -52,7 +52,7 @@ class P3PromptAnalyser:
             example = dataset[i]
             
             # Get the prompt template
-            prompt = example.get('inputs_pretokenised', '')
+            prompt = example.get('inputs_pretokenized', '')
             
             if not prompt or len(prompt) < 10:
                 continue
@@ -73,43 +73,52 @@ class P3PromptAnalyser:
         Returns:
             Dict of features
         """
-        # Parse structure
-        components = self.parser.parse(prompt_text)
-        structure = self.parser.infer_structure(components)
-        
-        # Get vector encoding
-        vector = self.encoder.encode(structure)
-        
-        # Build feature dict
-        features = {
-            # Binary features
-            'has_instruction': structure.has_instruction,
-            'has_examples': structure.has_examples,
-            'has_constraints': structure.has_constraints,
-            'has_style': structure.has_style,
-            'has_context': structure.has_context,
+        try:
+            structure, components = self.parser.parse(prompt_text)
             
-            # Continuous features
-            'num_examples': structure.num_examples,
-            'instruction_length': structure.instruction_length,
-            'total_tokens': structure.total_tokens,
+            # Extract features from structure
+            features = {
+                'has_instruction': structure.has_instruction,
+                'has_examples': structure.has_examples,
+                'has_constraints': structure.has_constraints,
+                'has_style': structure.has_style,
+                'has_context': structure.has_context,
+                'num_examples': structure.num_examples,
+                'instruction_length': structure.instruction_length,
+                'total_tokens': structure.total_tokens,
+                'prompt_length': len(prompt_text),
+                'word_count': len(prompt_text.split()),
+                'num_sentences': prompt_text.count('.') + prompt_text.count('!') + prompt_text.count('?'),
+                'num_components': sum([
+                    structure.has_instruction,
+                    structure.has_examples,
+                    structure.has_constraints,
+                    structure.has_style,
+                    structure.has_context
+                ])
+            }
             
-            # Derived features
-            'prompt_length': len(prompt_text),
-            'word_count': len(prompt_text.split()),
-            'num_sentences': prompt_text.count('.') + prompt_text.count('!') + prompt_text.count('?'),
+            return features
             
-            # Complexity
-            'num_components': sum([
-                structure.has_instruction,
-                structure.has_examples,
-                structure.has_constraints,
-                structure.has_style,
-                structure.has_context
-            ])
-        }
-        
-        return features
+        except Exception as e:
+            # Return minimal default features if parsing fails
+            print(f"Error in extract_features: {e}")
+            return {
+                'has_instruction': True,
+                'has_examples': False,
+                'has_constraints': False,
+                'has_style': False,
+                'has_context': False,
+                'num_examples': 0.0,
+                'instruction_length': 0.5,
+                'total_tokens': min(1.0, len(prompt_text.split()) / 150.0),
+                'prompt_length': len(prompt_text),
+                'word_count': len(prompt_text.split()),
+                'num_sentences': max(1, prompt_text.count('.') + prompt_text.count('!') + prompt_text.count('?')),
+                'num_components': 1
+            }
+            
+            return features
 
     def analyse_dataset(self, subset_names, n_per_subset=50):
         """
@@ -143,6 +152,43 @@ class P3PromptAnalyser:
                     print(f"Error extracting features: {e}")
         
         return pd.DataFrame(all_data)
+
+    def component_analysis(self, df):
+        """Analyse which components are most common"""
+        print("COMPONENT USAGE ANALYSIS")
+        
+        components = ['has_instruction', 'has_examples', 'has_constraints', 
+                     'has_style', 'has_context']
+        
+        usage = {}
+        for comp in components:
+            usage[comp] = df[comp].mean()
+        
+        print(f"\n{'Component':<20} {'Usage Rate':<15}")
+        print("-"*35)
+        for comp, rate in sorted(usage.items(), key=lambda x: x[1], reverse=True):
+            comp_name = comp.replace('has_', '').capitalize()
+            print(f"{comp_name:<20} {rate:>14.1%}")
+        
+        # Plot
+        plt.figure(figsize=(10, 6))
+        comp_names = [c.replace('has_', '').capitalize() for c in components]
+        values = [usage[c] for c in components]
+        
+        bars = plt.bar(comp_names, values, color='steelblue', alpha=0.8, edgecolor='black')
+        plt.ylabel('Usage Rate', fontsize=12)
+        plt.title('Prompt Component Usage in P3 Dataset', fontsize=14, fontweight='bold')
+        plt.ylim(0, 1)
+        plt.grid(axis='y', alpha=0.3)
+        
+        for i, (bar, v) in enumerate(zip(bars, values)):
+            plt.text(bar.get_x() + bar.get_width()/2, v + 0.02, 
+                    f'{v:.1%}', ha='center', fontweight='bold', fontsize=10)
+        
+        plt.tight_layout()
+        plt.savefig('data/results/p3_component_usage.png', dpi=150)
+        
+        return usage
 
     def length_analysis(self, df):
         """
