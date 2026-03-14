@@ -4,6 +4,10 @@ P3 Dataset Exploratory Analysis
 Analyses BigScience P3 prompts to discover what makes them effective
 Extracts data-driven insights for Bayesian optimisation
 """
+import sys
+from pathlib import Path
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
 
 from datasets import load_dataset
 from src.prompt_parser import PromptParser
