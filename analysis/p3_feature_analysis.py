@@ -8,6 +8,11 @@ Extracts data-driven insights for Bayesian optimisation
 from datasets import load_dataset
 from src.prompt_parser import PromptParser
 from src.encoders import PromptEncoder
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+import os
 
 class P3PromptAnalyser:
     """
@@ -205,3 +210,39 @@ class P3PromptAnalyser:
         plt.savefig('data/results/p3_examples_vs_length.png', dpi=150)
         
         return corr
+
+    def generate_findings(self, df):
+        """
+        Generate findings JSON for informed optimiser
+        
+        Returns:
+            Dict of findings to use in BO
+        """
+        findings = {
+            # Component importance (usage rates)
+            'instruction_importance': df['has_instruction'].mean(),
+            'examples_importance': df['has_examples'].mean(),
+            'constraints_importance': df['has_constraints'].mean(),
+            'style_importance': df['has_style'].mean(),
+            'context_importance': df['has_context'].mean(),
+            
+            # Optimal values
+            'optimal_num_examples': df[df['has_examples']]['num_examples'].median() if df['has_examples'].any() else 0.4,
+            'optimal_instruction_length': df[df['has_instruction']]['instruction_length'].median() if df['has_instruction'].any() else 0.5,
+            
+            # Correlations (for kernel weighting)
+            'example_length_correlation': df[['num_examples', 'word_count']].corr().iloc[0, 1] if 'num_examples' in df.columns else 0.5,
+            
+            # Statistics
+            'mean_word_count': df['word_count'].mean(),
+            'median_word_count': df['word_count'].median(),
+            'mean_components': df['num_components'].mean(),
+        }
+        
+        # Save to JSON
+        import json
+        with open('data/results/p3_findings.json', 'w') as f:
+            json.dump(findings, f, indent=2)
+        
+        
+        return findings
