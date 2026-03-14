@@ -119,3 +119,31 @@ class PromptStructureKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel
                 K[i, j] = weighted_agreement.sum() / weights.sum()
         
         return K
+
+    def rbf_kernel(self, X1, X2):
+        """
+        RBF kernel for continuous features (4D: num_examples, instruction_length, 
+        total_tokens, mean_example_length)
+        
+        Args:
+            X1, X2: Arrays of shape (n_samples, 14)
+                    Dimensions 5-8 are continuous
+        
+        Returns:
+            Kernel matrix of shape (n1, n2)
+        """
+        # Extract continuous features (dimensions 5-8)
+        cont1 = X1[:, 5:9]
+        cont2 = X2[:, 5:9]
+        
+        # Standard RBF: k(x, x') = exp(-||x - x'||^2 / (2 * length_scale^2))
+        n1, n2 = cont1.shape[0], cont2.shape[0]
+        K = np.zeros((n1, n2))
+        
+        for i in range(n1):
+            for j in range(n2):
+                diff = cont1[i] - cont2[j]
+                sq_dist = np.sum(diff ** 2)
+                K[i, j] = np.exp(-sq_dist / (2 * self.length_scale ** 2))
+        
+        return K
