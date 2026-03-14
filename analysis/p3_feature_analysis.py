@@ -250,3 +250,64 @@ class P3PromptAnalyser:
         
         
         return findings
+
+def run_p3_analysis():
+    """
+    Main analysis pipeline
+    """
+    print("="*70)
+    print("P3 EXPLORATORY ANALYSIS")
+    print("="*70)
+    
+    # Create output directory
+    os.makedirs('data/results', exist_ok=True)
+    
+    # Initialize analyser
+    analyser = P3PromptAnalyser()
+    
+    # Select diverse P3 subsets (classification tasks)
+    subsets = [
+        "super_glue_cb_GPT_3_style",
+        "amazon_polarity_Is_this_product_review_positive",
+        "app_reviews_categorize_rating_using_review",
+    ]
+    
+    print(f"\n Analysing {len(subsets)} P3 subsets...")
+    print(f"   Sampling 50 prompts per subset = {len(subsets) * 50} total\n")
+    
+    # Load and analyse
+    df = analyser.analyse_dataset(subsets, n_per_subset=50)
+    
+    if len(df) == 0:
+        print(" No data collected. Check internet connection.")
+        return None
+    
+    print(f"\n Loaded {len(df)} prompts for analysis")
+    
+    # Run analyses
+    print("\n Running analyses...")
+    
+    usage = analyser.component_analysis(df)
+    analyser.length_analysis(df)
+    corr = analyser.example_analysis(df)
+    findings = analyser.generate_findings(df)
+    
+    # Save dataframe
+    df.to_csv('data/results/p3_feature_data.csv', index=False)
+    print(f"\n Saved feature data: data/results/p3_feature_data.csv")
+    
+    print("\n" + "="*70)
+    print(" ANALYSIS COMPLETE")
+    print("="*70)
+    print("\nKey Findings:")
+    print(f"  - Instruction usage: {findings['instruction_importance']:.1%}")
+    print(f"  - Examples usage: {findings['examples_importance']:.1%}")
+    print(f"  - Optimal num examples: {findings['optimal_num_examples']:.2f}")
+    print(f"  - Example-length correlation: {findings['example_length_correlation']:.2f}")
+    print(f"  - Mean prompt length: {findings['mean_word_count']:.0f} words")
+    
+    return df, findings
+
+
+if __name__ == "__main__":
+    df, findings = run_p3_analysis()
