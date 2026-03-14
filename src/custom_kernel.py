@@ -178,3 +178,37 @@ class PromptStructureKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel
                 K[i, j] = (tau + 1) / 2
         
         return K
+    
+    def __call__(self, X, Y=None, eval_gradient=False):
+        """
+        Compute kernel between X and Y
+        
+        Args:
+            X: Array of shape (n_samples_X, 14)
+            Y: Array of shape (n_samples_Y, 14) or None
+            eval_gradient: Whether to compute gradient (not implemented)
+        
+        Returns:
+            K: Kernel matrix of shape (n_samples_X, n_samples_Y)
+        """
+        if Y is None:
+            Y = X
+        
+        # Ensure arrays
+        X = np.atleast_2d(X)
+        Y = np.atleast_2d(Y)
+        
+        # Compute each kernel component
+        K_cat = self.hamming_kernel(X, Y)
+        K_cont = self.rbf_kernel(X, Y)
+        K_ord = self.kendall_tau_kernel(X, Y)
+        
+        # Combine with weights (multiplicative - captures interactions)
+        K = (self.categorical_weight * K_cat + 
+             self.continuous_weight * K_cont + 
+             self.ordering_weight * K_ord)
+        
+        if eval_gradient:
+            raise NotImplementedError("Gradient computation not implemented")
+        
+        return K
