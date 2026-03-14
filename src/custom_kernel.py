@@ -147,3 +147,34 @@ class PromptStructureKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel
                 K[i, j] = np.exp(-sq_dist / (2 * self.length_scale ** 2))
         
         return K
+    
+    def kendall_tau_kernel(self, X1, X2):
+        """
+        Kendall-Tau correlation kernel for ordinal features (5D: component_ordering)
+        
+        Measures rank correlation between orderings
+        
+        Args:
+            X1, X2: Arrays of shape (n_samples, 14)
+                    Dimensions 9-13 are ordering positions
+        
+        Returns:
+            Kernel matrix of shape (n1, n2)
+        """
+        # Extract ordering features (dimensions 9-13)
+        ord1 = X1[:, 9:14]
+        ord2 = X2[:, 9:14]
+        
+        n1, n2 = ord1.shape[0], ord2.shape[0]
+        K = np.zeros((n1, n2))
+        
+        for i in range(n1):
+            for j in range(n2):
+                # Kendall-Tau correlation (-1 to 1)
+                tau, _ = kendalltau(ord1[i], ord2[j])
+                
+                # Convert to similarity (0 to 1)
+                # tau=-1 (opposite) → 0, tau=0 (random) → 0.5, tau=1 (same) → 1
+                K[i, j] = (tau + 1) / 2
+        
+        return K
