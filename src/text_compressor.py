@@ -118,3 +118,33 @@ class TextCompressor:
         
         compressed = re.sub(r'\s+', ' ', compressed)
         return compressed.strip()
+
+    def compress_context(self, context: str, aggressiveness: float = 0.6) -> str:
+        """
+        Compress context text
+        
+        Args:
+            context: Original context text
+            aggressiveness: How much to compress
+        
+        Returns:
+            Compressed context
+        """
+        # Context can be moderately compressed
+        compressed = context
+        
+        # Remove "Context:" prefix
+        compressed = re.sub(r'^Context:\s*', '', compressed, flags=re.IGNORECASE)
+        
+        # Remove filler
+        filler = ['You are', 'This is for', 'The audience is']
+        for phrase in filler:
+            compressed = re.sub(rf'^{phrase}\s+', '', compressed, flags=re.IGNORECASE)
+        
+        # Keep just the core info
+        if aggressiveness > 0.5:
+            # Extract key nouns
+            compressed = re.sub(r'\b(assisting with|helping with|working on)\b', '', compressed, flags=re.IGNORECASE)
+        
+        compressed = re.sub(r'\s+', ' ', compressed)
+        return compressed.strip()
