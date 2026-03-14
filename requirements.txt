@@ -3,3 +3,7 @@ dataclasses
 scikit-learn
 matplotlib
 openai
+datasets
+pandas
+seaborn
+scipy
