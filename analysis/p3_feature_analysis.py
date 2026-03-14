@@ -101,3 +101,36 @@ class P3PromptAnalyser:
         }
         
         return features
+
+    def analyse_dataset(self, subset_names, n_per_subset=50):
+        """
+        Analyse multiple P3 subsets
+        
+        Args:
+            subset_names: List of subset names to analyse
+            n_per_subset: Number of prompts per subset
+        
+        Returns:
+            DataFrame with all features
+        """
+        all_data = []
+        
+        for subset in subset_names:
+            samples = self.load_p3_subset(subset, n_per_subset)
+            
+            for sample in samples:
+                try:
+                    features = self.extract_features(sample['prompt'])
+                    
+                    row = {
+                        'id': sample['id'],
+                        'subset': subset,
+                        'prompt': sample['prompt'],
+                        **features
+                    }
+                    
+                    all_data.append(row)
+                except Exception as e:
+                    print(f"Error extracting features: {e}")
+        
+        return pd.DataFrame(all_data)
