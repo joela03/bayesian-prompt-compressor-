@@ -219,3 +219,48 @@ class PromptStructureKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel
         Compute diagonal of kernel matrix (self-similarity)
         """
         return np.ones(X.shape[0])
+
+if __name__ == "__main__":
+    print("="*70)
+    print("CUSTOM KERNEL TEST")
+    print("="*70)
+    
+    # Create test vectors
+    # Structure: [5 categorical, 4 continuous, 5 ordering] = 14D
+    
+    # Similar structures
+    x1 = np.array([1, 1, 1, 0, 0,  # has inst, examples, constraints
+                   0.4, 0.5, 0.6, 0.3,  # continuous features
+                   1, 2, 3, 4, 5])  # ordering
+    
+    x2 = np.array([1, 1, 1, 0, 0,  # same categorical
+                   0.42, 0.52, 0.58, 0.32,  # similar continuous
+                   1, 2, 3, 4, 5])  # same ordering
+    
+    # Different structure
+    x3 = np.array([1, 0, 0, 1, 1,  # different categorical
+                   0.9, 0.1, 0.9, 0.8,  # different continuous
+                   5, 4, 3, 2, 1])  # opposite ordering
+    
+    X = np.array([x1, x2, x3])
+    
+    # Test with P3 weights
+    print("\n1. Testing with P3-derived weights:")
+    kernel_p3 = PromptStructureKernel(use_p3_weights=True)
+    K_p3 = kernel_p3(X)
+    
+    print(f"\nKernel matrix:")
+    print(K_p3)
+    print(f"\nSimilarity x1-x2 (similar): {K_p3[0, 1]:.3f}")
+    print(f"Similarity x1-x3 (different): {K_p3[0, 2]:.3f}")
+    print(f"Similarity x2-x3 (different): {K_p3[1, 2]:.3f}")
+    
+    # Test without P3 weights
+    print("\n2. Testing with uniform weights:")
+    kernel_uniform = PromptStructureKernel(use_p3_weights=False)
+    K_uniform = kernel_uniform(X)
+    
+    print(f"\nKernel matrix:")
+    print(K_uniform)
+    print(f"\nSimilarity x1-x2 (similar): {K_uniform[0, 1]:.3f}")
+    print(f"Similarity x1-x3 (different): {K_uniform[0, 2]:.3f}")
