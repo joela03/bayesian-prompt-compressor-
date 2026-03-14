@@ -79,3 +79,43 @@ class PromptStructureKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel
                 'has_context': 1.0,
             }
             print("P3 findings not found, using uniform weights")
+
+        def hamming_kernel(self, X1, X2):
+        """
+        Hamming kernel for categorical features (5D: has_instruction, etc.)
+        
+        Weighted by P3-derived importance
+        
+        Args:
+            X1, X2: Arrays of shape (n_samples, 14)
+                    First 5 dimensions are categorical
+        
+        Returns:
+            Kernel matrix of shape (n1, n2)
+        """
+        # Extract categorical features (dimensions 0-4)
+        cat1 = X1[:, :5]
+        cat2 = X2[:, :5]
+        
+        # Feature names in order
+        feature_names = ['has_instruction', 'has_examples', 'has_constraints', 
+                        'has_style', 'has_context']
+        
+        # Get weights for each feature
+        weights = np.array([self.feature_weights[name] for name in feature_names])
+        
+        # Weighted Hamming similarity
+        # For each pair, compute weighted agreement
+        n1, n2 = cat1.shape[0], cat2.shape[0]
+        K = np.zeros((n1, n2))
+        
+        for i in range(n1):
+            for j in range(n2):
+                # Agreement: 1 if same, 0 if different
+                agreement = (cat1[i] == cat2[j]).astype(float)
+                # Weighted agreement
+                weighted_agreement = agreement * weights
+                # Normalise by sum of weights
+                K[i, j] = weighted_agreement.sum() / weights.sum()
+        
+        return K
