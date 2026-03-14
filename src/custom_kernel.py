@@ -212,3 +212,9 @@ class PromptStructureKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel
             raise NotImplementedError("Gradient computation not implemented")
         
         return K
+
+    def diag(self, X):
+        """
+        Compute diagonal of kernel matrix (self-similarity)
+        """
+        return np.ones(X.shape[0])
