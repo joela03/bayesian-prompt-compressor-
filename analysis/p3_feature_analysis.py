@@ -134,3 +134,39 @@ class P3PromptAnalyser:
                     print(f"Error extracting features: {e}")
         
         return pd.DataFrame(all_data)
+
+    def length_analysis(self, df):
+        """
+        Analyse prompt length distributions
+        """
+        print("LENGTH DISTRIBUTION ANALYSIS")
+        
+        print(f"\nPrompt Length Statistics:")
+        print(f"  Mean:   {df['word_count'].mean():.1f} words")
+        print(f"  Median: {df['word_count'].median():.1f} words")
+        print(f"  Min:    {df['word_count'].min():.0f} words")
+        print(f"  Max:    {df['word_count'].max():.0f} words")
+        print(f"  Std:    {df['word_count'].std():.1f} words")
+        
+        # Plot
+        fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+        
+        # Word count distribution
+        axes[0].hist(df['word_count'], bins=30, color='steelblue', alpha=0.7, edgecolor='black')
+        axes[0].axvline(df['word_count'].median(), color='red', linestyle='--', 
+                       linewidth=2, label=f"Median: {df['word_count'].median():.0f}")
+        axes[0].set_xlabel('Word Count', fontsize=12)
+        axes[0].set_ylabel('Frequency', fontsize=12)
+        axes[0].set_title('Prompt Length Distribution', fontsize=13, fontweight='bold')
+        axes[0].legend()
+        axes[0].grid(alpha=0.3)
+        
+        # Component count
+        axes[1].hist(df['num_components'], bins=6, color='coral', alpha=0.7, edgecolor='black')
+        axes[1].set_xlabel('Number of Components', fontsize=12)
+        axes[1].set_ylabel('Frequency', fontsize=12)
+        axes[1].set_title('Component Count Distribution', fontsize=13, fontweight='bold')
+        axes[1].grid(alpha=0.3)
+        
+        plt.tight_layout()
+        plt.savefig('data/results/p3_length_distributions.png', dpi=150)
