@@ -170,3 +170,38 @@ class P3PromptAnalyser:
         
         plt.tight_layout()
         plt.savefig('data/results/p3_length_distributions.png', dpi=150)
+
+    def example_analysis(self, df):
+        """
+        Analyse example usage patterns
+        """
+        print("/n EXAMPLE USAGE PATTERNS")
+        
+        with_examples = df[df['has_examples'] == True]
+        
+        if len(with_examples) == 0:
+            print("No prompts with examples found")
+            return
+        
+        print(f"\nPrompts with examples: {len(with_examples)} ({len(with_examples)/len(df):.1%})")
+        print(f"Average num_examples:  {with_examples['num_examples'].mean():.2f}")
+        print(f"Median num_examples:   {with_examples['num_examples'].median():.2f}")
+        
+        # Examples vs length
+        plt.figure(figsize=(10, 6))
+        plt.scatter(with_examples['num_examples'], with_examples['word_count'],
+                   alpha=0.5, s=50, color='steelblue', edgecolors='black', linewidth=0.5)
+        
+        # Add correlation
+        corr = with_examples[['num_examples', 'word_count']].corr().iloc[0, 1]
+        
+        plt.xlabel('Number of Examples (normalized)', fontsize=12)
+        plt.ylabel('Total Word Count', fontsize=12)
+        plt.title(f'Examples vs Prompt Length (correlation: {corr:.2f})', 
+                 fontsize=13, fontweight='bold')
+        plt.grid(alpha=0.3)
+        
+        plt.tight_layout()
+        plt.savefig('data/results/p3_examples_vs_length.png', dpi=150)
+        
+        return corr
