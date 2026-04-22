@@ -4,7 +4,7 @@ Encode prompt structures as vectors for Gaussian Process
 
 import numpy as np
 from dataclasses import dataclass
-from typing import List
+from typing import List, Dict
 
 @dataclass
 class PromptStructure:
@@ -28,11 +28,10 @@ class PromptStructure:
     component_ordering: List[int]
 
     def __post_init__(self):
-        """Validate structure"""
-        assert 0 <= self.num_examples <= 1
-        assert 0 <= self.instruction_length <= 1
-        assert 0 <= self.total_tokens <= 1
-        assert len(self.component_ordering) == 5
+        """Logic to clip values after initialisation"""
+        self.instruction_length = np.clip(self.instruction_length, 0.3, 1.0)
+        self.num_examples = np.clip(self.num_examples, 0.0, 1.0)
+        self.total_tokens = np.clip(self.total_tokens, 0.0, 1.0)
 
 class PromptEncoder:
     """
