@@ -80,7 +80,7 @@ Matched-subset comparison against LLMLingua on the 38 prompts both systems succe
 
 | Metric                       | Ours    | LLMLingua |
 |------------------------------|---------|-----------|
-| Compression ratio            | 23.3%   | 25.3%     |
+| Compression ratio            | 24.1%   | 24.2%     |
 | LLM judge score (0–100)      | 73.3    | 70.2      |
 | Persona preservation         | 100%    | 53%       |
 | Compression efficiency       | 0.179   | 0.155     |
