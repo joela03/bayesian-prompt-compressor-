@@ -1,0 +1,94 @@
+====================================================================================================
+  EVALUATION REPORT — constraint audit + fair LLM-output comparison
+====================================================================================================
+
+SECTION 1 — Constraint audit result
+----------------------------------------------------------------------------------------------------
+  Missing required keywords: 0
+  Priority order: constraint_keywords, example_keywords, style_keywords, context_keywords, instruction_keywords
+  Priority order check: OK
+  Overall audit: PASS
+
+SECTION 2 — Impact of constraint fix (old our_results vs new)
+----------------------------------------------------------------------------------------------------
+  Before fix:  avg compression 20.7%
+  After fix:   avg compression 20.9%
+  Prompts where compression changed: 25
+  Prompts unchanged: 123
+  Prompts where constraints now preserved (sample):
+    Prompt Generator                      was  0.0% -> now 94.1%  
+    Architectural Sketch & Markup Overl   was 69.9% -> now  0.0%  
+    Explainer with Analogies              was  0.0% -> now 65.7%  
+    Profesor Creativo                     was  0.0% -> now 59.1%  
+    Predictive Eye Tracking Heatmap Gen   was 57.5% -> now  0.0%  
+    Isometric City Diorama                was 56.5% -> now  0.0%  
+    Pitchside Tunnel Moment with Your F   was  0.0% -> now 53.2%  
+    Travel Poster                         was 36.6% -> now  0.0%  
+    JavaScript Console                    was 35.7% -> now  0.0%  (kept 'do not')
+    Linux Terminal                        was 35.4% -> now  0.0%  (kept 'do not')
+
+SECTION 3 — Fair comparison (matched subset, n=38)
+----------------------------------------------------------------------------------------------------
+  Metric                       Ours       LLMLingua 
+  ----------------------------------------------------------------------
+  Avg compression               24.2%      25.3%    
+  Prompt similarity             0.953      0.873      <- BIASED (favors low-compression)
+  LLM output similarity         0.767      0.743      <- FAIR (same queries, fixed judge embedding)
+  LLM judge score (0-100)       73.33      70.18      <- FAIR (relative to original intent)
+  Compression efficiency (comp × out_sim)  0.180      0.155      <- FAIR (rewards high on both axes)
+  Persona preserved            100.0%      52.6%      <- FAIR (binary)
+  Output-sim gate (>0.85)       36.8%      42.1%      <- FAIR (fixed threshold)
+
+SECTION 4 — By domain (matched subset, n>=3 only)
+----------------------------------------------------------------------------------------------------
+  Domain                 n   Ours compr LLM compr  Ours osim  LLM osim   Ours judge  LLM judge 
+  ------------------------------------------------------------------------------------------
+  analysis               3    10.4%      32.5%      0.902      0.706      88.89       64.44    
+  business               3    38.9%      34.3%      0.804      0.767      81.11       74.44    
+  creative_writing       3    25.6%      17.6%      0.805      0.772      78.89       72.22    
+  developer_tools        6    20.0%      17.4%      0.785      0.862      79.44       82.78    
+  education              3    42.5%      16.7%      0.718      0.649      78.89       66.67    
+  entertainment          5    24.1%      18.9%      0.641      0.662      60.00       63.33    
+  health_lifestyle       3    24.3%      31.7%      0.890      0.879      85.56       86.67    
+  other                  6    22.8%      39.0%      0.816      0.655      72.78       64.44    
+  roleplay               3    26.5%      24.7%      0.742      0.790      71.11       71.11    
+  translation            3    12.8%      18.3%      0.584      0.713      40.00       53.33    
+
+SECTION 5 — Query 3 constraint preservation analysis
+----------------------------------------------------------------------------------------------------
+  (cosine >= 0.80 between an original constraint sentence and any compressed sentence)
+  prompts with constraints in original Q3: 25
+  ours: avg constraint mention rate     54.0%
+  llmlingua: avg constraint mention rate 47.2%
+
+  Per-prompt (constraint mention rate; ✓ = >=50% of original constraints captured):
+  Prompt                                   #constraints  Ours     LLM     
+  --------------------------------------------------------------------------------
+  Storyteller                              5                0%    100%✓
+  Debater                                  7               71%✓    57%✓
+  Screenwriter                             6               33%     50%✓
+  AI Writing Tutor                         1              100%✓     0% 
+  Pet Behaviorist                          5                0%    100%✓
+  Mental Health Adviser                    8               38%      0% 
+  Real Estate Agent                        2               50%✓     0% 
+  Artist Advisor                           2              100%✓   100%✓
+  Text Based Adventure Game                1                0%      0% 
+  Developer Relations Consultant           6               17%      0% 
+  Fallacy Finder                           1              100%✓     0% 
+  Biblical Translator                      1                0%      0% 
+  IT Expert                                8               25%     25% 
+  New Language Creator                     1              100%✓   100%✓
+  Web Browser                              1                0%    100%✓
+  Project Manager                          7               71%✓    71%✓
+  Virtual Fitness Coach                    2              100%✓     0% 
+  Structured Iterative Reasoning Protoco   6               67%✓     0% 
+  Idea Clarifier GPT                       5               60%✓    40% 
+  Virtual Event Planner                    7               57%✓    86%✓
+  Flashcard Study System                   7              100%✓    71%✓
+  Chess Game                               7               71%✓    86%✓
+  URL Shortener                            7               71%✓    71%✓
+  Floating City Island - Photoreal 4K Po   7               43%     71%✓
+  Realistic Food Image Generator           8               75%✓    50%✓
+
+====================================================================================================
+Report written to /Users/joelallen-caliste/Documents/code/ai/asycd/data/results/benchmark/evaluation_report.txt

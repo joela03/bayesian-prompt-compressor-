@@ -1,0 +1,108 @@
+====================================================================================================
+  BENCHMARK REPORT — our compressor vs LLMLingua
+====================================================================================================
+
+SECTION 1 — Overall summary
+----------------------------------------------------------------------------------------------------
+  Full set (our system, n=147)
+    avg compression  20.1%   avg sim 0.958   persona 100%   gate pass 100%
+
+  Matched subset — apples-to-apples (n=42, prompts both systems ran on)
+    Our system :  compression  23.3%   sim 0.951   efficiency 0.217
+    LLMLingua  :  compression  23.6%   sim 0.879   efficiency 0.181
+
+  Efficiency = compression × similarity (higher is better on both axes)
+  Persona preserved:  ours 100%   LLMLingua 57%
+  Quality gate pass:  ours 100%   LLMLingua 40%  (outputs below sim 0.85 or persona lost)
+
+  LLMLingua errors: 1
+
+SECTION 2 — By domain (subset prompts where both systems ran)
+----------------------------------------------------------------------------------------------------
+  Domain                 n   Our compr  Our sim   LLM compr  LLM sim   Winner
+  -----------------------------------------------------------------------------------------------
+  analysis               3     10.4%    0.983       32.5%    0.857     sim: ours / compr: llmlingua
+  business               4     37.0%    0.942       38.8%    0.814     sim: ours / compr: llmlingua
+  creative_writing       3     25.6%    0.960       17.6%    0.908     sim: ours / compr: ours
+  developer_tools        9     16.5%    0.959       19.2%    0.903     sim: ours / compr: llmlingua
+  education              3     42.5%    0.937       16.7%    0.885     sim: ours / compr: ours
+  entertainment          5     24.1%    0.942       18.9%    0.919     sim: ours / compr: ours
+  general                2     33.8%    0.968       22.5%    0.848     sim: ours / compr: ours
+  health_lifestyle       3     24.3%    0.954       31.7%    0.904     sim: ours / compr: llmlingua
+  marketing              1      8.0%    0.881        1.1%    0.999     sim: llmlingua / compr: ours
+  research               3     19.8%    0.940       33.3%    0.791     sim: ours / compr: llmlingua
+  roleplay               3     26.5%    0.932       24.7%    0.838     sim: ours / compr: ours
+  translation            3     12.8%    0.961       18.3%    0.894     sim: ours / compr: llmlingua
+
+SECTION 3 — Cases where our system underperforms (our compr < 5% AND LLMLingua > 15%)
+----------------------------------------------------------------------------------------------------
+  Label                               Domain               Words  Our     LLM     OurSim  LLMSim
+  -----------------------------------------------------------------------------------------------
+  Artist Advisor                      business             87      1.1%  54.0%  0.997   0.765
+  Virtual Fitness Coach               health_lifestyle     82      0.0%  50.0%  0.968   0.853
+  Fallacy Finder                      analysis             82      0.0%  48.8%  1.000   0.703
+  Gnomist                             roleplay             81      0.0%  46.9%  1.000   0.747
+  Debater                             analysis             80      0.0%  46.2%  0.993   0.882
+
+SECTION 4 — Cases where LLMLingua breaks quality (sim < 0.85 OR persona dropped)
+----------------------------------------------------------------------------------------------------
+  Label                               Domain               Words  LLM compr  LLM sim  Persona
+  -----------------------------------------------------------------------------------------------
+  Virtual Event Planner               business             80       52.5%   0.619    False
+  Teacher of React.js                 education            81       46.9%   0.660    False
+  Structured Iterative Reasoning Pr   research             162      47.5%   0.678    True
+  Biblical Translator                 translation          83       51.8%   0.693    False
+  Song Recommender                    general              80       45.0%   0.695    False
+  Idea Clarifier GPT                  research             150      51.3%   0.697    True
+  Fallacy Finder                      analysis             82       48.8%   0.703    False
+  Gnomist                             roleplay             81       46.9%   0.747    False
+  Rapper                              creative_writing     81       50.6%   0.748    False
+  Developer Relations Consultant      developer_tools      157      50.3%   0.756    False
+  Artist Advisor                      business             87       54.0%   0.765    False
+  Unconstrained AI model DAN          roleplay             307      26.1%   0.773    True
+  IT Expert                           developer_tools      157      50.3%   0.783    True
+  AI2sql SQL Model — Query Generato   developer_tools      163      39.3%   0.788    True
+  Text Based Adventure Game           entertainment        87       47.1%   0.806    False
+  Profesor Creativo                   developer_tools      127      28.3%   0.823    True
+  Guessing Game Master                entertainment        156      44.2%   0.843    True
+  Virtual Fitness Coach               health_lifestyle     82       50.0%   0.853    False
+  Mental Health Adviser               health_lifestyle     82       45.1%   0.859    False
+  Real Estate Agent                   business             84       47.6%   0.875    False
+  Debater                             analysis             80       46.2%   0.882    False
+  Screenwriter                        creative_writing     88        1.1%   0.978    False
+  Tic-Tac-Toe Game                    entertainment        87        1.1%   0.985    False
+  Football Commentator                analysis             83        2.4%   0.987    False
+  AI Writing Tutor                    education            94        1.1%   0.997    False
+
+SECTION 5 — Side-by-side examples
+----------------------------------------------------------------------------------------------------
+
+  [OURS-WIN]  AI Writing Tutor  (education)
+    metrics:  ours -> compr 74.5%, sim 0.888;   llmlingua -> compr 1.1%, sim 0.997
+    original (first 100w):
+      I want you to act as an AI writing tutor. I will provide you with a student who needs help improving their writing and your task is to use artificial intelligence tools, such as natural language processing, to give the student feedback on how they can improve their composition. You should also use your rhetorical knowledge and experience about effective writing techniques in order to suggest ways that the student can better express their thoughts and ideas in written form. My first request is "I need somebody to help me edit my master's thesis."
+    ours compressed (first 100w):
+      I want you to act as an AI writing tutor My first request is "I need somebody to help me edit my master's thesis."
+    llmlingua compressed (first 100w):
+      I want you to as an AI writing tutor. I will provide you with a student who needs help improving their writing and your task is to use artificial intelligence tools, such as natural language processing, to give the student feedback on how they can improve their composition. You should also use your rhetorical knowledge and experience about effective writing techniques in order to suggest ways that the student can better express their thoughts and ideas in written form. My first request is "I need somebody to help me edit my master's thesis."
+
+  [LLMLINGUA-WIN-ON-COMPRESSION]  Virtual Fitness Coach  (health_lifestyle)
+    metrics:  ours -> compr 0.0%, sim 0.968;   llmlingua -> compr 50.0%, sim 0.853
+    original (first 100w):
+      I want you to act as a virtual fitness coach guiding a person through a workout routine. Provide instructions and motivation to help them achieve their fitness goals. Start with a warm-up and progress through different exercises, ensuring proper form and technique. Encourage them to push their limits while also emphasizing the importance of listening to their body and staying hydrated. Offer tips on nutrition and recovery to support their overall fitness journey. Remember to inspire and uplift them throughout the session.
+    ours compressed (first 100w):
+      I want you to act as a virtual fitness coach guiding a person through a workout routine Provide instructions and motivation to help them achieve their fitness goals Start with a warm-up and progress through different exercises, ensuring proper form and technique Encourage them to push their limits while also emphasizing the importance of listening to their body and staying hydrated Offer tips on nutrition and recovery to support their overall fitness journey Remember to inspire and uplift them throughout the session.
+    llmlingua compressed (first 100w):
+      I want to act a virtual coach guiding a a workout. Provide and. a and through exercises, ensuring proper and.ourage to limits while also of and staying. Offer on and to their fitness. to inspire and uplift them throughout the session.
+
+  [CLOSE-CALL]  New Language Creator  (translation)
+    metrics:  ours -> compr 1.1%, sim 0.983;   llmlingua -> compr 1.1%, sim 0.993
+    original (first 100w):
+      I want you to translate the sentences I wrote into a new made up language. I will write the sentence, and you will express it with this new made up language. I just want you to express it with the new made up language. I don't want you to reply with anything but the new made up language. When I need to tell you something in English, I will do it by wrapping it in curly brackets like {like this}. My first sentence is "Hello, what are your thoughts?"
+    ours compressed (first 100w):
+      I want you to translate the sentences I wrote into a new made up language I will write the sentence, and you will express it with this new made up language I want you to express it with the new made up language I don't want you to reply with anything but the new made up language When I need to tell you something in English, I will do it by wrapping it in curly brackets like {like this} My first sentence is "Hello, what are your thoughts?"
+    llmlingua compressed (first 100w):
+      I want to translate the sentences I wrote into a new made up language. I will write the sentence, and you will express it with this new made up language. I just want you to express it with the new made up language. I don't want you to reply with anything but the new made up language. When I need to tell you something in English, I will do it by wrapping it in curly brackets like {like this}. My first sentence is "Hello, what are your thoughts?"
+
+====================================================================================================
+Report written to /Users/joelallen-caliste/Documents/code/ai/asycd/data/results/benchmark/report.txt

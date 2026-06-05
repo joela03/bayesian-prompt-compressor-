@@ -1,0 +1,42 @@
+{
+  "naive": [
+    {
+      "id": "awesome_63",
+      "evaluations": 25,
+      "compression": 0.43538998835855647,
+      "best_score": 0.8509033299301254
+    },
+    {
+      "id": "awesome_90",
+      "evaluations": 25,
+      "compression": 0.02376599634369287,
+      "best_score": 0.8509033299301254
+    },
+    {
+      "id": "awesome_153",
+      "evaluations": 25,
+      "compression": 0.20846905537459284,
+      "best_score": 0.8509033299301254
+    }
+  ],
+  "informed": [
+    {
+      "id": "awesome_63",
+      "evaluations": 25,
+      "compression": 0.47147846332945287,
+      "best_score": 0.9995368363845414
+    },
+    {
+      "id": "awesome_90",
+      "evaluations": 25,
+      "compression": 0.03656307129798903,
+      "best_score": 0.9995368363845414
+    },
+    {
+      "id": "awesome_153",
+      "evaluations": 25,
+      "compression": 0.20521172638436483,
+      "best_score": 0.9995368363845414
+    }
+  ]
+}

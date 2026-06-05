@@ -1,0 +1,14 @@
+{
+  "instruction_importance": 0.95,
+  "examples_importance": 0.68,
+  "constraints_importance": 0.39,
+  "style_importance": 0.09,
+  "context_importance": 0.06,
+  "optimal_num_examples": 0.42,
+  "optimal_instruction_length": 0.53,
+  "example_length_correlation": 0.85,
+  "mean_word_count": 127.0,
+  "median_word_count": 98.0,
+  "mean_components": 2.3,
+  "_note": "Adjusted for system prompts: P3 base + literature on prompt engineering"
+}

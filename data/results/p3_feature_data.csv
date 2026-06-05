@@ -1,0 +1,451 @@
+id,subset,prompt,has_instruction,has_examples,has_constraints,has_style,has_context,num_examples,instruction_length,total_tokens,prompt_length,word_count,num_sentences,num_components
+super_glue_cb_GPT_3_style_0,super_glue_cb_GPT_3_style,"It was a complex language. Not written down but handed down. One might say it was peeled down.
+Question: the language was peeled down True, False, or Neither?",True,False,False,False,False,0.0,0.14,0.056,158,28,4,1
+super_glue_cb_GPT_3_style_1,super_glue_cb_GPT_3_style,"It is part of their religion, a religion I do not scoff at as it holds many elements which match our own even though it lacks the truth of ours. At one of their great festivals they have the ritual of driving out the devils from their bodies. First the drummers come on - I may say that no women are allowed to take part in this ritual and the ladies here will perhaps agree with me that they are fortunate in that omission.
+Question: no women are allowed to take part in this ritual True, False, or Neither?",True,False,True,False,False,0.0,0.345,0.198,508,99,4,2
+super_glue_cb_GPT_3_style_2,super_glue_cb_GPT_3_style,"The Paris to Rouen railway was being extended to Le Havre, and the line cut straight through Dr Flaubert's land. Part of it was to be compulsorily purchased. You could say that Gustave was shepherded into creative retreat at Croisset by epilepsy.
+Question: Gustave was shepherded into creative retreat at Croisset by epilepsy True, False, or Neither?",True,False,False,False,False,0.0,0.285,0.114,350,57,4,1
+super_glue_cb_GPT_3_style_3,super_glue_cb_GPT_3_style,"Part of it was to be compulsorily purchased. You could say that Gustave was shepherded into creative retreat at Croisset by epilepsy. You could also say he was driven there by the railway.
+Question: Gustave was driven to creative retreat in Croisset by the railway True, False, or Neither?",True,False,False,False,False,0.0,0.245,0.098,289,49,4,1
+super_glue_cb_GPT_3_style_4,super_glue_cb_GPT_3_style,"Some of them, like for instance the farm in Connecticut, are quite small. If I like a place I buy it. I guess you could say it's a hobby.
+Question: buying places is a hobby True, False, or Neither?",True,True,False,False,False,0.1,0.13,0.078,197,39,4,2
+super_glue_cb_GPT_3_style_5,super_glue_cb_GPT_3_style,"Look, my dear, I'm not in my dotage yet, and I know I'm a grumbler and a complainer. You could say the only form of comfort I 've got are my complaints.
+Question: the only form of comfort he has are his complaints True, False, or Neither?",True,False,False,False,False,0.0,0.235,0.094,238,47,3,1
+super_glue_cb_GPT_3_style_6,super_glue_cb_GPT_3_style,"Then the silence in the Zoo became complete. Woil stared around him and then suddenly with a push of his wings raised himself into the air, turned, and landed ten feet away on the back of a green bench. Creggan could see that he was afraid and that his fear was making him terribly uncertain.
+Question: Woil was afraid True, False, or Neither?",True,False,False,False,False,0.0,0.315,0.126,343,63,4,1
+super_glue_cb_GPT_3_style_7,super_glue_cb_GPT_3_style,"But, of course, that just wasn't possible. Her disappointment over Jonathan, which had driven her to France in the first place, had been relegated somewhere to the back of her mind. Now in retrospect she could see that marriage to him would have been a ghastly mistake and that her reaction to discovering that he had been seeing other women while he had been engaged to her had had far more to do with wounded pride than with a wounded heart.
+Question: marriage to Jonathan would have been a ghastly mistake True, False, or Neither?",True,False,False,False,False,0.0,0.475,0.19,533,95,4,1
+super_glue_cb_GPT_3_style_8,super_glue_cb_GPT_3_style,"Like now. The Community in Knockglen would defend Eve vociferously. Even some of the Sisters here in Dublin might see that the girl had a point.
+Question: the girl had a point True, False, or Neither?",True,False,False,False,False,0.0,0.18,0.072,200,36,4,1
+super_glue_cb_GPT_3_style_9,super_glue_cb_GPT_3_style,"``They have to be crushed, Bobkins!'' So saying, she marched off down the gravel path, making the kind of crunching noise Robert had thought could only be produced by the BBC sound-effects department. As they rounded the edge of the building he could see that behind the house was a vast garden.
+Question: behind the house was a vast garden True, False, or Neither?",True,False,False,False,False,0.0,0.325,0.128,365,64,4,1
+super_glue_cb_GPT_3_style_10,super_glue_cb_GPT_3_style,"``Do you mind if I use your phone?'' Ronni could see that Guido's brain was whirring.
+Question: Guido's brain was whirring True, False, or Neither?",True,False,False,False,False,0.0,0.13,0.05,147,25,3,1
+super_glue_cb_GPT_3_style_11,super_glue_cb_GPT_3_style,"``Look, lady, give me a break. I just deliver the stuff, I don't interview it for the Sunday papers.'' He waved the paper at her and even at a distance she could see that it said very little.
+Question: the paper said very little True, False, or Neither?",True,False,False,False,False,0.0,0.245,0.096,253,48,4,1
+super_glue_cb_GPT_3_style_12,super_glue_cb_GPT_3_style,"``You 've heard something like that before. Haven't you, Jimmy?'' Jimmy had been shaken by those sounds more shaken than the others for good reason but Cardiff could see that he was unprepared to show it as he pushed himself away from the reception counter.
+Question: Jimmy was unprepared to show he had been shaken True, False, or Neither?",True,False,False,False,False,0.0,0.3,0.118,340,59,4,1
+super_glue_cb_GPT_3_style_13,super_glue_cb_GPT_3_style,"It was Alan's idea. He made a sour kind of joke out of it, that they must wait until their wedding night. Carolyn agreed because she could see he meant it although she didn't understand why.
+Question: Alan meant it True, False, or Neither?",True,False,True,False,False,0.0,0.13,0.088,239,44,4,2
+super_glue_cb_GPT_3_style_14,super_glue_cb_GPT_3_style,"And why bother to write anyway? What was there to say? Mary had some vague idea that Adam's parents might suspect he was down here and come to see him.
+Question: Adam was down here True, False, or Neither?",True,False,False,False,False,0.0,0.195,0.078,205,39,4,1
+super_glue_cb_GPT_3_style_15,super_glue_cb_GPT_3_style,"``And you're not having this dress,'' Nora said, bending down to look at the price tag. ``It's two and a half guineas!'' she hissed at Louise who could tell that she was genuinely appalled.
+Question: Nora was genuinely appalled True, False, or Neither?",True,False,False,False,False,0.0,0.22,0.086,252,43,4,1
+super_glue_cb_GPT_3_style_16,super_glue_cb_GPT_3_style,"She said good morning to Alice and Alice said hallo. She was thin and rather tall with a very lined gentle face and hair that was white but which Alice could see had once been blonde. She could also have told this was Tina's mother before Mrs Darne went off down the passage that led to the Headmaster's Flat.
+Question: this was Tina's mother True, False, or Neither?",True,False,False,False,False,0.0,0.34,0.136,367,68,4,1
+super_glue_cb_GPT_3_style_17,super_glue_cb_GPT_3_style,"She might have sat all afternoon, nibbling and stuporous, exhausted but not sleepy. But the glazier finally came down from the upper floor, cheerfully announcing that all was now right and tight and he would be on his way. Maggie could tell that he would have liked to stop for a chat that he felt sorry for her left on her own but she lacked either her grandmother's grace or her mother's energy so she did not offer him tea.
+Question: the glazier would have liked to stop for a chat True, False, or Neither?",True,False,False,False,False,0.0,0.475,0.19,509,95,4,1
+super_glue_cb_GPT_3_style_18,super_glue_cb_GPT_3_style,"Jim waited. He waited a long time, and when the young doctor finally came out, it was almost dark. Jim could nonetheless tell by his anxious face that something was wrong.
+Question: something was wrong True, False, or Neither?",True,False,False,False,False,0.0,0.195,0.078,226,39,4,1
+super_glue_cb_GPT_3_style_19,super_glue_cb_GPT_3_style,"``Yes?'' ``Nathan?'' He could tell it was long-distance the line was so gravelly and hollow but he didn't recognise the voice.
+Question: the call was long-distance True, False, or Neither?",True,False,False,True,False,0.0,0.06,0.06,188,30,4,2
+super_glue_cb_GPT_3_style_20,super_glue_cb_GPT_3_style,"Chopra stood unsteadily on his feet. The shapechanger bounded around with excitement. Chopra could tell something had happened.
+Question: something had happened True, False, or Neither?",True,False,False,False,False,0.0,0.13,0.052,185,26,4,1
+super_glue_cb_GPT_3_style_21,super_glue_cb_GPT_3_style,"It seemed impossible that anyone could endure such pain for so long, but at last the doors of the Renault slammed and there was comparative silence. The engine was started up, revving violently as the car was turned round on the narrow road. John could tell that it was being driven back up the hill towards Putna.
+Question: the car was being driven back up the hill towards Putna True, False, or Neither?",True,False,False,False,False,0.0,0.365,0.146,405,73,4,1
+super_glue_cb_GPT_3_style_22,super_glue_cb_GPT_3_style,"Just when you think you 've got it straight, along comes the Fool with his pig's bladder and whops you on the nose. By the way, I'm no idiot. I could tell Gillian and Stuart weren't thrilled to see me at the airport.
+Question: Gillian and Stuart weren't thrilled to see her at the airport True, False, or Neither?",True,False,False,False,False,0.0,0.295,0.118,313,59,4,1
+super_glue_cb_GPT_3_style_23,super_glue_cb_GPT_3_style,"He's weird enough to have undressed me without thinking, according to some mad notion of the ``proper'' thing to do. Perhaps he thought I couldn't lie in bed with my clothes on.
+Question: she couldn't lie in bed with her clothes on True, False, or Neither?",True,False,False,False,False,0.0,0.23,0.092,256,46,3,1
+super_glue_cb_GPT_3_style_24,super_glue_cb_GPT_3_style,"That is to say, I did not take sufficient account of the fact that at that time of the day, what Mr Farraday enjoys is a conversation of a lighthearted, humorous sort. Knowing this to be his likely mood when I brought in the tea yesterday afternoon, and being aware of his general propensity to talk with me in a bantering tone at such moments, it would certainly have been wiser not to have mentioned Miss Kenton at all. But you will perhaps understand that there was a natural tendency on my part in asking what was after all a generous favour from my employer to hint that there was a good professional motive behind my request.
+Question: there was a natural tendency on her part to hint that there was a good professional motive behind her request True, False, or Neither?",True,False,False,True,False,0.0,0.475,0.284,776,142,4,2
+super_glue_cb_GPT_3_style_25,super_glue_cb_GPT_3_style,"But don't dilly-dally for too long. Once it's published we are all going to look a little risible if we have made no adjustments to what is after all known as being predominantly my own design of gallery. Also I am a bit older than the rest of you but you can perhaps understand that I don't want to drop dead without a proper and public recantation.
+Question: he doesn't want to drop dead without a proper and public recantation True, False, or Neither?",True,False,False,False,False,0.0,0.42,0.168,454,84,4,1
+super_glue_cb_GPT_3_style_26,super_glue_cb_GPT_3_style,"I should dearly have liked to know whether they were Europeans or Americans, but I couldn't hear the accents. They appeared to be arguing. I hoped the white men weren't telling him to eliminate all witnesses because I don't believe it would have needed much persuasion.
+Question: eliminating all witnesses would have needed much persuasion True, False, or Neither?",True,False,True,False,False,0.0,0.2,0.118,364,59,4,2
+super_glue_cb_GPT_3_style_27,super_glue_cb_GPT_3_style,"But the damage was done as far as my faith was concerned, which is probably why I went mad. So anyway, that Christmas Eve night confirmed my worst fears, it was like a kind of ``royal flush'' for the infant Jimbo. All three kings - Pa Santa and the King of Kings - all down the pan together... And to be honest I don't believe any of them stands a chance of ever making a comeback with me.
+Question: any of the three kings stands a chance of ever making a comeback with him True, False, or Neither?",True,False,False,False,False,0.0,0.49,0.196,498,98,7,1
+super_glue_cb_GPT_3_style_28,super_glue_cb_GPT_3_style,"He had seen something I should have, which was a car turning in from Soho Square and coming up behind me. My right foot hovered over the accelerator pedal and I balanced Armstrong on the clutch. I wasn't as convinced as Malpass that Nevil was out of harm's way.
+Question: Nevil was out of harm's way True, False, or Neither?",True,False,True,False,False,0.0,0.195,0.12,324,60,4,2
+super_glue_cb_GPT_3_style_29,super_glue_cb_GPT_3_style,"Jed wondered. He 'd scarcely set eyes on him since the night they 'd had dinner together at the house in Westwood. Nobody had mentioned him either and Jed didn't feel he should ask.
+Question: Jed should ask True, False, or Neither?",True,False,True,False,False,0.0,0.11,0.084,231,42,4,2
+super_glue_cb_GPT_3_style_30,super_glue_cb_GPT_3_style,"Yet what good came from knowing that a woman had killed herself? The children who had suffered a trauma would survive the experience, scarred by it and a little flawed by it. They would never forget that for a week they had imagined the act of murder had been committed.
+Question: for a week the children had imagined the act of murder had been committed True, False, or Neither?",True,False,False,False,False,0.0,0.345,0.138,379,69,4,1
+super_glue_cb_GPT_3_style_31,super_glue_cb_GPT_3_style,"Nora calculated that there must be lots of single men up there so she decided it was ideal for the ``manhunt'', as we called it, even though the train fare was a serious consideration. I remember we went up to Euston together one Saturday morning, very excited, to buy the ticket in advance. It was a secret - if my parents had known she was going away alone they would have soon put the kybosh on it.
+Question: Nora was going away alone True, False, or Neither?",True,False,True,False,False,0.0,0.265,0.174,462,87,4,2
+super_glue_cb_GPT_3_style_32,super_glue_cb_GPT_3_style,"His mother driving the car, so happy, young-looking and fashionably dressed and his father, a big, confident man in a smart suit, smiling and turning round to say something to Simon in the back seat. Marie thought of her own mother with her frumpy clothes and ageing, lined face. No one would have guessed that she was only forty-two.
+Question: Marie's mother was only forty-two True, False, or Neither?",True,False,False,False,False,0.0,0.345,0.138,403,69,4,1
+super_glue_cb_GPT_3_style_33,super_glue_cb_GPT_3_style,"``I hope you are settling down and the cat is well.'' This was a lie. She did not hope the cat was well.
+Question: the cat was well True, False, or Neither?",True,False,False,False,False,0.0,0.165,0.064,156,32,4,1
+super_glue_cb_GPT_3_style_34,super_glue_cb_GPT_3_style,"Jane ate without pausing. Hunger was an unknown experience. She had never imagined it could actually hurt.
+Question: hunger could actually hurt True, False, or Neither?",True,False,False,False,False,0.0,0.13,0.052,168,26,4,1
+super_glue_cb_GPT_3_style_35,super_glue_cb_GPT_3_style,"Miss Martindale had had a school, but her rigid ideas and stern manner had frightened the children, and their parents had taken them away. And gradually the school declined, until she had to give it up and retire to end her days in the white cottage with the inevitable cat as her only companion. Breeze had never imagined that digging was such hard work.
+Question: digging was such hard work True, False, or Neither?",True,False,False,False,False,0.0,0.37,0.148,417,74,4,1
+super_glue_cb_GPT_3_style_36,super_glue_cb_GPT_3_style,"``You don't need to worry. We're quite adequately chaperoned. Rosa is a woman of strict moral principles.'' If she knows I'm in here she's probably hovering outside the door right now.
+Question: he's in here True, False, or Neither?",True,False,False,False,False,0.0,0.2,0.078,232,39,5,1
+super_glue_cb_GPT_3_style_37,super_glue_cb_GPT_3_style,"I said you were mad to come over at this time. It's a world event. Don't you know that Venice is packed with visitors?
+Question: Venice is packed with visitors True, False, or Neither?",True,False,False,False,False,0.0,0.17,0.068,184,34,4,1
+super_glue_cb_GPT_3_style_38,super_glue_cb_GPT_3_style,"And what she had said, and went on saying quietly, calmly, efficiently, was that she loved Maggie. She paid attention. At eight Maggie had not known that her grandmother was famous but she had seen that people had something in their manner when they looked at Rachel.
+Question: Maggie's grandmother was famous True, False, or Neither?",True,False,False,False,False,0.0,0.28,0.112,334,56,4,1
+super_glue_cb_GPT_3_style_39,super_glue_cb_GPT_3_style,"They 'd seen Miss Lavant on the promenade and about the town, always walking slowly, sometimes with a neat wicker basket. Kate had often thought she was beautiful. She hadn't known she was in love with Dr Greenslade who had a wife already and three children.
+Question: Miss Lavant was in love with Dr Greenslade True, False, or Neither?",True,False,False,False,False,0.0,0.295,0.118,336,59,4,1
+super_glue_cb_GPT_3_style_40,super_glue_cb_GPT_3_style,"Did he intend everyone in the castle to know he did not want the wife he had married in such a hurry? Did he intend to ignore her completely? Then Isabel saw Ellen's stunned face and realised that her maid at least did not know she had spent the night alone.
+Question: Isabel had spent the night alone True, False, or Neither?",True,False,False,False,False,0.0,0.31,0.124,326,62,4,1
+super_glue_cb_GPT_3_style_41,super_glue_cb_GPT_3_style,"Most of them young, about his age, stood and talked and drank and laughed. The two girls he had noticed earlier were standing talking to some other girls. Graham hoped they all realised that just because he was standing talking to Slater that didn't mean he was gay too.
+Question: Graham was gay too True, False, or Neither?",True,False,False,False,False,0.0,0.29,0.116,324,58,4,1
+super_glue_cb_GPT_3_style_42,super_glue_cb_GPT_3_style,"He said that maybe I wasn't ready to join the Party just yet. Terry's passion for equality appealed to my purer mind, and his hatred of existing authority appealed to my resentments. But although I hated inequality it didn't mean I wanted to be treated like everyone else.
+Question: he wanted to be treated like everyone else True, False, or Neither?",True,False,False,False,False,0.0,0.305,0.122,350,61,4,1
+super_glue_cb_GPT_3_style_43,super_glue_cb_GPT_3_style,"``Oh, my poor Folly... We 've been together for five years, Lexy and I - she practically holds that company together. Of course I gave her an ``A''. But that doesn't mean I'm having an affair with her.
+Question: he is having an affair with Lexy True, False, or Neither?",True,False,False,False,False,0.0,0.25,0.1,269,50,7,1
+super_glue_cb_GPT_3_style_44,super_glue_cb_GPT_3_style,"Nevertheless, her heart sank at the thought of spending an evening with him in his present state of mind, and she was tempted to invent a sore throat in order to get out of it. But he had been very helpful over the Puddephat business, she admitted to herself, and his moods were unpredictable - he might be on top of the world by the time he arrived at the cinema. ``I'm still keen if you are '' she said brightly pretending she had not noticed anything was amiss.
+Question: something was amiss True, False, or Neither?",True,False,False,False,False,0.0,0.485,0.194,519,97,4,1
+super_glue_cb_GPT_3_style_45,super_glue_cb_GPT_3_style,"What must it be like to be imprisoned here, day after day, month after month? I wonder, does he keep them chained and manacled, thought Fenella, or does he use sorcery? And so utterly immersed was she in this strange blue and green land that was not feeling strange any more that she did not even notice that she was weighing sorcery against steel chains and seriously considering the likely outcome.
+Question: Fenella was weighing sorcery against steel chains True, False, or Neither?",True,False,True,False,False,0.0,0.34,0.166,485,83,4,2
+super_glue_cb_GPT_3_style_46,super_glue_cb_GPT_3_style,"Strasbourg, Vienna, Bucharest, Istanbul, not stopping, not looking back. I saw her tossing newly gauffred curls as the open roadster headed east, away from Ollie... Temporarily I managed to re-erect my jocular facade, but inside I was panicking. He could take her away I thought he could just do that he has such power to hurt me this little furry creature who hasn't even noticed that I 've given up the weed.
+Question: he has given up the weed True, False, or Neither?",True,False,False,False,False,0.0,0.415,0.166,470,83,7,1
+super_glue_cb_GPT_3_style_47,super_glue_cb_GPT_3_style,"It - the tractor, the boys and the bulbs in the earth - knew she had chosen for them and was coming back to them. Of course there was still love, there was healthy, growing love and its name was called Work. She had fallen in love with it so slowly and gently and sweetly that she had never noticed it had happened.
+Question: falling in love had happened True, False, or Neither?",True,False,False,False,False,0.0,0.365,0.146,379,73,4,1
+super_glue_cb_GPT_3_style_48,super_glue_cb_GPT_3_style,"After the twelfth dot, two thirds of the way down the page, the transcript of this long session tails away into blank paper. I suppose what's happened is this. He has gone on staring out of the window thinking and she has gone on staring at him waiting with such absorption that neither of them noticed the tape had run out.
+Question: the tape had run out True, False, or Neither?",True,False,False,False,False,0.0,0.355,0.142,380,71,4,1
+super_glue_cb_GPT_3_style_49,super_glue_cb_GPT_3_style,"``His name is Matthew Blake,'' Mandy informed Charity as they descended the steps from their cabin on to the paved pathway that led to the lodge. Thankfully she hadn't even noticed that Charity had changed from the blue wrap-around skirt and was now wearing red shorts with her white silk blouse.
+Question: Charity had changed from the blue wrap-around skirt True, False, or Neither?",True,False,False,False,False,0.0,0.32,0.128,383,64,3,1
+amazon_polarity_Is_this_product_review_positive_0,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Stuning even for the non-gamer
+Review: This sound track was beautiful! It paints the senery in your mind so well I would recomend it even to people who hate vid. game music! I have played the game Chrono Cross but out of all of the games I have ever played it has the best music! It backs away from crude keyboarding and takes a fresher step with grate guitars and soulful orchestras. It would impress anyone who cares to listen! ^_^
+Answer: ",True,False,False,False,False,0.0,0.44,0.176,482,88,7,1
+amazon_polarity_Is_this_product_review_positive_1,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: The best soundtrack ever to anything.
+Review: I'm reading a lot of reviews saying that this is the best 'game soundtrack' and I figured that I'd write a review to disagree a bit. This in my opinino is Yasunori Mitsuda's ultimate masterpiece. The music is timeless and I'm been listening to it for years now and its beauty simply refuses to fade.The price tag on this is pretty staggering I must say, but if you are going to buy any cd for this much money, this is the only one that I feel would be worth every penny.
+Answer: ",True,False,True,False,False,0.0,0.345,0.21,565,105,6,2
+amazon_polarity_Is_this_product_review_positive_2,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Amazing!
+Review: This soundtrack is my favorite music of all time, hands down. The intense sadness of ""Prisoners of Fate"" (which means all the more if you've played the game) and the hope in ""A Distant Promise"" and ""Girl who Stole the Star"" have been an important inspiration to me personally throughout my teen years. The higher energy tracks like ""Chrono Cross ~ Time's Scar~"", ""Time of the Dreamwatch"", and ""Chronomantique"" (indefinably remeniscent of Chrono Trigger) are all absolutely superb as well.This soundtrack is amazing music, probably the best of this composer's work (I haven't heard the Xenogears soundtrack, so I can't say for sure), and even if you've never played the game, it would be worth twice the price to buy it.I wish I could give it 6 stars.
+Answer: ",True,False,False,False,False,0.0,0.695,0.274,816,137,7,1
+amazon_polarity_Is_this_product_review_positive_3,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Excellent Soundtrack
+Review: I truly like this soundtrack and I enjoy video game music. I have played this game and most of the music on here I enjoy and it's truly relaxing and peaceful.On disk one. my favorites are Scars Of Time, Between Life and Death, Forest Of Illusion, Fortress of Ancient Dragons, Lost Fragment, and Drowned Valley.Disk Two: The Draggons, Galdorb - Home, Chronomantique, Prisoners of Fate, Gale, and my girlfriend likes ZelbessDisk Three: The best of the three. Garden Of God, Chronopolis, Fates, Jellyfish sea, Burning Orphange, Dragon's Prayer, Tower Of Stars, Dragon God, and Radical Dreamers - Unstealable Jewel.Overall, this is a excellent soundtrack and should be brought by those that like video game music.Xander Cross
+Answer: ",True,False,True,False,False,0.0,0.565,0.252,799,126,8,2
+amazon_polarity_Is_this_product_review_positive_4,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Remember, Pull Your Jaw Off The Floor After Hearing it
+Review: If you've played the game, you know how divine the music is! Every single song tells a story of the game, it's that good! The greatest songs are without a doubt, Chrono Cross: Time's Scar, Magical Dreamers: The Wind, The Stars, and the Sea and Radical Dreamers: Unstolen Jewel. (Translation varies) This music is perfect if you ask me, the best it can be. Yasunori Mitsuda just poured his heart on and wrote it down on paper.
+Answer: ",True,False,False,False,False,0.0,0.475,0.19,537,95,6,1
+amazon_polarity_Is_this_product_review_positive_5,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: an absolute masterpiece
+Review: I am quite sure any of you actually taking the time to read this have played the game at least once, and heard at least a few of the tracks here. And whether you were aware of it or not, Mitsuda's music contributed greatly to the mood of every single minute of the whole game.Composed of 3 CDs and quite a few songs (I haven't an exact count), all of which are heart-rendering and impressively remarkable, this soundtrack is one I assure you you will not forget. It has everything for every listener -- from fast-paced and energetic (Dancing the Tokage or Termina Home), to slower and more haunting (Dragon God), to purely beautifully composed (Time's Scar), to even some fantastic vocals (Radical Dreamers).This is one of the best videogame soundtracks out there, and surely Mitsuda's best ever. ^_^
+Answer: ",True,False,False,False,False,0.0,0.76,0.3,881,150,6,1
+amazon_polarity_Is_this_product_review_positive_6,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Buyer beware
+Review: This is a self-published book, and if you want to know why--read a few paragraphs! Those 5 star reviews must have been written by Ms. Haddon's family and friends--or perhaps, by herself! I can't imagine anyone reading the whole thing--I spent an evening with the book and a friend and we were in hysterics reading bits and pieces of it to one another. It is most definitely bad enough to be entered into some kind of a ""worst book"" contest. I can't believe Amazon even sells this kind of thing. Maybe I can offer them my 8th grade term paper on ""To Kill a Mockingbird""--a book I am quite sure Ms. Haddon never heard of. Anyway, unless you are in a mood to send a book to someone as a joke---stay far, far away from this one!
+Answer: ",True,False,True,False,False,0.0,0.685,0.294,794,147,10,2
+amazon_polarity_Is_this_product_review_positive_7,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Glorious story
+Review: I loved Whisper of the wicked saints. The story was amazing and I was pleasantly surprised at the changes in the book. I am not normaly someone who is into romance novels, but the world was raving about this book and so I bought it. I loved it !! This is a brilliant story because it is so true. This book was so wonderful that I have told all of my friends to read it. It is not a typical romance, it is so much more. Not reading this book is a crime, becuase you are missing out on a heart warming story.
+Answer: ",True,False,False,False,False,0.0,0.56,0.226,578,113,10,1
+amazon_polarity_Is_this_product_review_positive_8,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: A FIVE STAR BOOK
+Review: I just finished reading Whisper of the Wicked saints. I fell in love with the caracters. I expected an average romance read, but instead I found one of my favorite books of all time. Just when I thought I could predict the outcome I was shocked ! The writting was so descriptive that my heart broke when Julia's did and I felt as if I was there with them instead of just a distant reader. If you are a lover of romance novels then this is a must read. Don't let the cover fool you this book is spectacular!
+Answer: ",True,False,True,False,False,0.0,0.48,0.222,580,111,8,2
+amazon_polarity_Is_this_product_review_positive_9,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Whispers of the Wicked Saints
+Review: This was a easy to read book that made me want to keep reading on and on, not easy to put down.It left me wanting to read the follow on, which I hope is coming soon. I used to read a lot but have gotten away from it. This book made me want to read again. Very enjoyable.
+Answer: ",True,False,False,False,False,0.0,0.36,0.142,357,71,6,1
+amazon_polarity_Is_this_product_review_positive_10,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: The Worst!
+Review: A complete waste of time. Typographical errors, poor grammar, and a totally pathetic plot add up to absolutely nothing. I'm embarrassed for this author and very disappointed I actually paid for this book.
+Answer: ",True,False,False,False,False,0.0,0.215,0.086,272,43,5,1
+amazon_polarity_Is_this_product_review_positive_11,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Great book
+Review: This was a great book,I just could not put it down,and could not read it fast enough. Boy what a book the twist and turns in this just keeps you guessing and wanting to know what is going to happen next. This book makes you fall in love and can heat you up,it can also make you so angery. this book can make you go throu several of your emotions. This is a quick read romance. It is something that you will want to end your day off with if you read at night.
+Answer: ",True,False,False,False,False,0.0,0.52,0.208,526,104,7,1
+amazon_polarity_Is_this_product_review_positive_12,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Great Read
+Review: I thought this book was brilliant, but yet realistic. It showed me that to error is human. I loved the fact that this writer showed the loving side of God and not the revengeful side of him. I loved how it twisted and turned and I could not put it down. I also loved The glass castle.
+Answer: ",True,False,False,False,False,0.0,0.335,0.134,352,67,6,1
+amazon_polarity_Is_this_product_review_positive_13,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Oh please
+Review: I guess you have to be a romance novel lover for this one, and not a very discerning one. All others beware! It is absolute drivel. I figured I was in trouble when a typo is prominently featured on the back cover, but the first page of the book removed all doubt. Wait - maybe I'm missing the point. A quick re-read of the beginning now makes it clear. This has to be an intentional churning of over-heated prose for satiric purposes. Phew, so glad I didn't waste $10.95 after all.
+Answer: ",True,False,False,False,False,0.0,0.51,0.202,548,101,10,1
+amazon_polarity_Is_this_product_review_positive_14,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Awful beyond belief!
+Review: I feel I have to write to keep others from wasting their money. This book seems to have been written by a 7th grader with poor grammatical skills for her age! As another reviewer points out, there is a misspelling on the cover, and I believe there is at least one per chapter. For example, it was mentioned twice that she had a ""lean"" on her house. I was so distracted by the poor writing and weak plot, that I decided to read with a pencil in hand to mark all of the horrible grammar and spelling. Please don't waste your money. I too, believe that the good reviews must have been written by the author's relatives. I will not put much faith in the reviews from now on!
+Answer: ",True,True,True,False,False,0.1,0.555,0.28,748,140,10,3
+amazon_polarity_Is_this_product_review_positive_15,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Don't try to fool us with fake reviews.
+Review: It's glaringly obvious that all of the glowing reviews have been written by the same person, perhaps the author herself. They all have the same misspellings and poor sentence structure that is featured in the book. Who made Veronica Haddon think she is an author?
+Answer: ",True,False,False,False,False,0.0,0.305,0.122,360,61,5,1
+amazon_polarity_Is_this_product_review_positive_16,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: A romantic zen baseball comedy
+Review: When you hear folks say that they don't make 'em like that anymore, they might be talking about ""BY THE SEA"". This is a very cool story about a young Cuban girl searching for idenity who stumbles into a coastal resort kitchen gig with a zen motorcycle maintenance man, three hysterical Italian chefs and a Latino fireballing right handed pitcher who plays on the team sponsored by the resort's owner. As is often the case she 'finds' herself through honest, often comical but always emotional, interaction with this sizzling roster of players. With the perfect mix of special effects, that salsa sound and flashbacks, BY THE SEA, gets 4 BIG stars from me!
+Answer: ",True,False,False,False,False,0.0,0.63,0.252,743,126,5,1
+amazon_polarity_Is_this_product_review_positive_17,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Fashionable Compression Stockings!
+Review: After I had a DVT my doctor required me to wear compression stockings. I wore ugly white TED hose and yucky thick brown stockings. Then I found Jobst UltraSheer. They gave me the compression I needed (15-20,) but looked like regular pantyhose. Even though my blood clot has been gone for 4 years, I still buy these to wear as support stockings because they make my legs feel so nice.**Note, I have problems with the rubberized tops rolling down my thigh. I tried the Jobst adhesive, but I hated having my skin pulled all day. I bought an inexpensive garter belt and it works fine and helps keep the stockings from rolling.
+Answer: ",True,False,False,False,False,0.0,0.62,0.246,714,123,10,1
+amazon_polarity_Is_this_product_review_positive_18,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Jobst UltraSheer Thigh High
+Review: Excellent product. However, they are very difficult to get on for older people. I feel like I've had a full day workout after getting them on. Also, as the day wears on, they begin to roll down from the top and create a very deep ridge in the skin. I have to wear them, so if those two difficulties could be addressed it would be such a help.
+Answer: ",True,False,False,False,False,0.0,0.4,0.16,427,80,6,1
+amazon_polarity_Is_this_product_review_positive_19,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: sizes recomended in the size chart are not real
+Review: sizes are much smaller than what is recomended in the chart. I tried to put it and sheer it!. I guess you should not buy this item in the internet..it is better to go to the store and check it
+Answer: ",True,False,True,False,False,0.0,0.235,0.114,297,57,6,2
+amazon_polarity_Is_this_product_review_positive_20,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: mens ultrasheer
+Review: This model may be ok for sedentary types, but I'm active and get around alot in my job - consistently found these stockings rolled up down by my ankles! Not Good!! Solution: go with the standard compression stocking, 20-30, stock #114622. Excellent support, stays up and gives me what I need. Both pair of these also tore as I struggled to pull them up all the time. Good riddance/bad investment!
+Answer: ",True,False,False,False,False,0.0,0.4,0.16,469,80,8,1
+amazon_polarity_Is_this_product_review_positive_21,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Delicious cookie mix
+Review: I thought it was funny that I bought this product without knowing it was a mix. I read the header very quickly and just thought it was packaged cookies. But no, it is cookie MIX and I guess I should have noticed that since it is right in the title.This is the first time I have ever tried baking with a cookie mix. If you are used to the convenience of the cookie dough that you buy wrapped up in plastic logs then you might be in for a bit of a surprise. Mixing up the dough can get VERY messy (it is extremely sticky). However, with a cookie mix like this you have a lot of flexibility in the ratio of ingredients (I like to add some extra butter to make the baked cookies more chewy). Also, this mix has really large chocolate chips in it--I love that.I removed a star for the addition of 'natural flavors' in the mix.
+Answer: ",True,False,True,False,False,0.0,0.765,0.344,899,172,10,2
+amazon_polarity_Is_this_product_review_positive_22,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Another Abysmal Digital Copy
+Review: Rather than scratches and insect droppings, this one has random pixelations combined with muddy light and vague image resolution. Probably the cue should have been the packaging is straight out of your street corner bootleg dealer.If you've ever seen a reasonably good condition film copy, you know the defining visuals of his film are the crystal clear lighting contrasts in black and white. The surrounding countryside and 'old home' scenes are set with early morning ground mists or the haze of memory while the events on the bridge and in the water are bright, clear, and immediate.Here everything is dull, dark, and clouded. Or, if you remember the timbre and enunciation of Captain's commands, so are the visuals.After that, it is hard to believe this award winning, critically acclaimed film's best presentation is on YOUTUBE. Somewhere ""out there"" is a DVD that comes up to the standard of a 16mm public library reel.Just none of them appear to be on Amazon.
+Answer: ",True,False,True,False,False,0.0,0.8,0.346,1052,173,10,2
+amazon_polarity_Is_this_product_review_positive_23,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: A fascinating insight into the life of modern Japanese teens
+Review: I thoroughly enjoyed Rising Sons and Daughters. I don't know of any other book that looks at Japanese society from the point of view of its young people poised as they are between their parents' age-old Japanese culture of restraint and obedience to the will of the community, and their peers' adulation of Western culture. True to form, the ""New Young"" of Japan seem to be creating an ""international"" blend, as the Ando family demonstrates in this beautifully written book of vignettes of the private lives of members of this family. Steven Wardell is clearly a talented young author, adopted for some of his schooling into this family of four teens, and thus able to view family life in Japan from the inside out. A great read!
+Answer: ",True,False,False,False,False,0.0,0.725,0.29,847,145,6,1
+amazon_polarity_Is_this_product_review_positive_24,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: i liked this album more then i thought i would
+Review: I heard a song or two and thought same o same o,but when i listened to songs like ""blue angel"",""lanna"" and 'mama"" the hair just rose off my neck.Roy is trully an amazing singer with a talent you don't find much now days.
+Answer: ",True,False,False,False,False,0.0,0.31,0.122,324,61,3,1
+amazon_polarity_Is_this_product_review_positive_25,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Problem with charging smaller AAAs
+Review: I have had the charger for more than two years. It charges AA batteries just fine, but has a huge problem securing smaller AAA batteries. To charge the smaller batteries you need to flip down the little button at the positive end. In the beginning one of the four AAA batteries would pop up, and now three out of the four won't hold. The problem is the flip mechanism became loose, and any horizontal pressure would push the buttons back up. What I have to do now is using duct tape and a segment of crayon, apply the crayon on the buttons, and wrap the tape around. You know how painful that is.
+Answer: ",True,False,False,False,False,0.0,0.63,0.252,688,126,8,1
+amazon_polarity_Is_this_product_review_positive_26,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Works, but not as advertised
+Review: I bought one of these chargers..the instructions say the lights stay on while the battery charges...true. The instructions doNT say the lights turn off when its done. Which is also true. 24 hours of charging and the lights stay on. I returned it thinking I had a bad unit.The new one did the same thing. I just kept it since it does charge...but the lights are useless since they seem to always stay on. It's a ""backup"" charger for when I manage to drain all my AAs but I wouldn't want this as my only charger.
+Answer: ",True,False,False,False,False,0.0,0.565,0.218,596,109,17,1
+amazon_polarity_Is_this_product_review_positive_27,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Disappointed
+Review: I read the reviews,made my purchase and was very disappointed. The charger is convenient by charging all four batteries at once but the charge only lasts a very short time. I now have to go and find batteries that will give me longer life than the kodak NiMH AA batteries.
+Answer: ",True,False,False,False,False,0.0,0.295,0.118,342,59,4,1
+amazon_polarity_Is_this_product_review_positive_28,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Oh dear
+Review: I was excited to find a book ostensibly about Muslim feminism, but this volume did not live up to the expectations.One essay, among other things, describes the veil as potentially liberating. It doesn't begin to explain how or why.Another, on Muslim women in Cape Town, claims that Muslim women there are separate but ""more than equal."" Gee whiz, what a disappointment.I had expected and hoped for at least one Muslim feminist condemnation of gender apartheid. But there is not a single one in the book.I'm surprised it didn't have an essay extolling the virtues of female genital mutilation.--Alyssa A. Lappen
+Answer: ",True,False,False,False,False,0.0,0.58,0.22,675,110,10,1
+amazon_polarity_Is_this_product_review_positive_29,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Based on the reviews here I bought one and I'm glad I did!
+Review: This VCR/DVD was an early Christmas present to myself after deciding to join the rest of the world in DVD-land but not wanting to let go of my VHS movies quite yet. Based on the reviews and price, and because I own a JVC TV, this was my choice. I agree with the easy set-up. It's a bit awkward to work the whole TV/VHS/DVD selection options but I think I've gotten the hang of it.Two comments: it's not intuitive and actually is pretty complicated (too many buttons on the remote but that might please others who are more technically-minded than me) so I've had to rely heavily on the how-to manual. And setting the VCR timer is awkward -- you can't enter the start and end time but have to scroll (unless I'm missing something)...but those are my only complaints. This is a good product for your $$$.
+Answer: ",True,False,False,False,True,0.0,0.735,0.338,917,169,12,2
+amazon_polarity_Is_this_product_review_positive_30,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Incorrect disc!
+Review: I am a big JVC fan, but I do not like this model, I was suspiscious when I saw several units in the return section of the store. I bought one anyway (new) and must say I am not happy. The unit sends out clicks to the receiver once in a while, the transition between scenes is not always smooth,(like a little pause) and while it is still fairly new I can't get any DVD,CD or even a DVD headcleaner to work. All I get is a ""incorrect disc"" message.
+Answer: ",True,False,True,False,False,0.0,0.295,0.2,520,100,6,2
+amazon_polarity_Is_this_product_review_positive_31,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: happy with it...but
+Review: I'm a JVC nut...I have 3 JVC televisions, one VCR, one bookshelf audio system and car audio system. So when it came time to move the VCR player to the boys room and get another one for the old man I knew what make it was going to be. I decided on the combo player because I don't think VHS is going to be around much longer. I like my combo player except for 2 things:(1)no cable box compatability on the remote control (2)no seperate audio video inputs only input for coax cable from my cable box so all of the cable programming is in mono...wife can't tell the difference in the sound so if she's happy then I'll just live with it. VCR and DVD look and sound GREAT!!!!!!!
+Answer: ",True,False,False,False,False,0.0,0.72,0.282,750,141,21,1
+amazon_polarity_Is_this_product_review_positive_32,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: should be titled ""Hollywood Debacle""
+Review: The plot is so ridiculous, I have to wonder if they even read the script before making this film. The mountain lion breaks out of his trailer - and the cars behind don't notice? The mountain lion is captured - and put in a jail cell? Get real! Utterly, completely stupid.
+Answer: ",True,False,True,False,False,0.0,0.19,0.128,365,64,6,2
+amazon_polarity_Is_this_product_review_positive_33,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Is this great TV??? You bet it is
+Review: Hotel Babylon is not just good TV...it's great TV!!!! The show features some incredible acting from Tamzin Outhwaite (formerly of EastEnders, a BBC soap) and Max Beesley (from the ill-fated movie ""Glitter"" starring Mariah Carey). The show could make for a great drama series, but I felt that it is a mix of a drama, comedy, and soap opera all mixed into a great BBC show. The show aired on BBC America for a while but didn't get around to seeing it. I can now say that I got the DVD set and all the episodes are great. The season finale was an interesting to watch.The show reminds me of Hotel which aired on ABC from 1983 to 1988. The reason...Hotel was set at a fictional San Francisco hotel as Hotel Babylon was set at a luxury five-star hotel in England.I recommend this DVD to anyone who is willing to watch a great show from the BBC.
+Answer: ",True,False,False,False,False,0.0,0.885,0.346,930,173,22,1
+amazon_polarity_Is_this_product_review_positive_34,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Nothing you don't already know
+Review: If you have even casually looked into applying to law school, have already read everything there is in this book, do not waste your money, seriously!!
+Answer: ",True,False,True,False,False,0.0,0.03,0.078,238,39,3,2
+amazon_polarity_Is_this_product_review_positive_35,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Unfortunately it wasn't entertaining in the least bit.
+Review: When I first ordered the CD, I figured it was going to be a hip, cool daddy vibe CD. However much to my dismay it sounds like a fourth grade music class. The main jist of the CD is that there is a xylaphone playing over peoples voices trying to replicate happening party. I believe if I played this CD at a party anywhere in my neighborhood I would get laughed off the beach. Growing up a surfer in San Diego, I would not recommend this CD to any of my Southern California brothers. Honestly, when I played it I kinda of felt I was in a bad B movie. The absolutle epitimy of the CD is the last ""vibe"" Surf Cha Cha. Surfers don't CHA.
+Answer: ",True,False,False,True,False,0.0,0.605,0.284,745,142,10,2
+amazon_polarity_Is_this_product_review_positive_36,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Rochelle explains It All for You
+Review: Wondering what the hell has happened to the moral aspect of modern American culture ? This book is a lucid, well argued explanation of the simple fact that we have become so totally focused on our individual RIGHTS that we have completely ignored, and even mocked, our personal and public responsibilities. The final response and indictment of Robert Ringer's best seller, LOOKING OUT FOR #1. This is a great time for anyone who is disgusted with the boorish state of American media, politics and discourse in general, to clear their heads for the substantial challenges that lie before us not only as Americans, but as human beings. A great book
+Answer: ",True,False,False,False,False,0.0,0.615,0.248,736,124,5,1
+amazon_polarity_Is_this_product_review_positive_37,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: More great playing
+Review: Larry's work for the Muse label in the late 80s and early 90s found him exploring the rich catalog of jazz standards that he probably grew up playing. Surrounding himself with the best musicians around, Larry sounds relaxed, focused, and totally in control. Listen to Larry's take on ""My Funny Valentine"" and tell me it doesn't stand right up there with Chet Baker's or Miles'. A very fine album that you'll enjoy again and again.
+Answer: ",True,False,False,False,False,0.0,0.43,0.172,506,86,5,1
+amazon_polarity_Is_this_product_review_positive_38,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Doesn't work on a Mac
+Review: It clearly says on line this will work on a Mac OS system. The disk comes and it does not, only Windows . Do Not order this if you have a Mac!!!!!!!
+Answer: ",True,False,True,False,False,0.0,0.175,0.09,227,45,10,2
+amazon_polarity_Is_this_product_review_positive_39,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Very Frustrating
+Review: My three year old son was very excited to get this but after two attempts at playing it hasn't been touched since. You are not able to use the mouse through any of the games except for the ""power-up segments"" instead you are using the up-down arrows on the keyboard - too hard for him and not much fun. Very disapointed with this game and wish I could return it.
+Answer: ",True,False,False,False,False,0.0,0.4,0.16,436,80,4,1
+amazon_polarity_Is_this_product_review_positive_40,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Mind numbing
+Review: This game makes you do the same things over and over, it never holds my son's attention long enough to get to the next level. There is no choice of games you have to do every thing in order. We have another Rescue Heroes game and both my boys 3 and 6 love it, but this one is a dog!
+Answer: ",True,False,False,False,False,0.0,0.35,0.14,352,70,4,1
+amazon_polarity_Is_this_product_review_positive_41,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Cannot recommend
+Review: As a former Alaskan, I didn't want to have to do this. But after repeatedly attempting Allman's recipes and having to throw out 8-10 cups of flour and miscellaneous ingredients nearly every time--and then comparing to Ed Wood's recipes which work flawlessly, and Lisa Rayner's very excellent Wild Bread: Hand-baked sourdough artisan breads in your own kitchen, I can't help but notice that their recipes work, where Allman's fail.I'm not a novice baker. The only thing that worked reliably was the pancakes recipe, but that can be found other places as well.If you are looking for reliable recipes and concise information about starting a sourdough and maintaining it, I recommend any of Ed Wood's books, even his very old ones. Lisa Rayner has written a fabulous tome in Wild Bread. But pass on this book.While some of the historical vignettes were interesting--not enough so to warrant the cost of the book. Check it out at your library if you must.
+Answer: ",True,False,True,True,False,0.0,0.675,0.34,1025,170,10,3
+amazon_polarity_Is_this_product_review_positive_42,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Alaska sourdough
+Review: REad most of the book while visiting my brother in Alaska. Loved it. I am going to be making my sourdough starter soon. Book is full of great stories and recipes.
+Answer: ",True,False,False,False,False,0.0,0.205,0.082,236,41,5,1
+amazon_polarity_Is_this_product_review_positive_43,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Old and good
+Review: This book is worth to keep in your collection as it does not only advise what to do with sourdough but Ruth also told you what the picture of past 100 years ago in Alaska where no stand mixer nor any civilized stuffs in kitchen, just a pot of sourdough.
+Answer: ",True,False,False,False,False,0.0,0.305,0.122,323,61,2,1
+amazon_polarity_Is_this_product_review_positive_44,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: autumn
+Review: got this for my daughter in NC, she is now making prefect bread. Wish she lived closer to make me some
+Answer: ",True,False,False,False,False,0.0,0.15,0.06,166,30,2,1
+amazon_polarity_Is_this_product_review_positive_45,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Fast mp3 download of music waxed decades ago
+Review: One of these 26 songs played as background music on a YouTube video of some kind of gymnastic or dance feat out of Russia. I hunted down the melody, read the English lyrics, then decided to see what else was in the album. Downloaded the full album for $15 via Amazon mp3 downloader, and now happily listen to the melodies (interspersed) on my iPod.
+Answer: ",True,False,False,False,False,0.0,0.4,0.16,450,80,4,1
+amazon_polarity_Is_this_product_review_positive_46,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Maybe I got a bad one.
+Review: My experience: I got this from FM, not Amazon. The DVD player rattled pretty loudly sometimes (but not always) when I put in a DVD. I tried several. The picture quality wasn't all that great and the screen got a horizontal line thru the middle after a short time that would not go away. Plus one of the other reviewers was dead on about the remote - the layout makes no sense at all! Very poor human engineering, IMO. I brought it back to the store for a refund. I saw the same model under the Emerson name for <$400 at WM but was hesitant to buy it.
+Answer: ",True,False,False,False,False,0.0,0.61,0.244,630,122,10,1
+amazon_polarity_Is_this_product_review_positive_47,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: Sylvania 6620LDG 20"" Flat Panel LCD TV with Built in DVD player
+Review: Light weight, space saving very attractive design. Sharp Picture, Good sound quality and quick response time. DVD playback also excellent. Only negative is its remote control. It is hard to read the functions of the keys due to color choices. The placement of the keys are almost illogical and you have to look at it carefully before each use. It almost seems like it was designed by an imbecil. The quality, the features and the price still makes this TV an excellent buy.
+Answer: ",True,False,False,False,False,0.0,0.515,0.206,594,103,9,1
+amazon_polarity_Is_this_product_review_positive_48,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: TERRIBLE!! DO NOT BUY THIS
+Review: I bought this for my wife for her birthday,and had toreturn it because the DVD palyer would not work. I returned it and got a repalcement, which once again the DVD player failed to work! It is a piece of junk.
+Answer: ",True,False,True,False,False,0.0,0.15,0.108,293,54,6,2
+amazon_polarity_Is_this_product_review_positive_49,amazon_polarity_Is_this_product_review_positive,"Is this product review positive?
+Title: *** BEWARE ***
+Review: This TV is set so that it is not capable of a ""recall"" function. If you want to flash back between channels, this TV is not going to give it to you. The remote control that comes with the TV has no recall function, so I bought a Sony universal, which is a much better remote, that had the recall button on it. However, I soon learned that the TV is set at the factory to not have the capability to flash-back. It may not be a big deal to some, but this user found it very annoying.
+Answer: ",True,False,False,False,False,0.0,0.545,0.218,553,109,6,1
+app_reviews_categorize_rating_using_review_0,app_reviews_categorize_rating_using_review,"Given this review: ""Great app! The new version now works on my Bravia Android TV which is great as it's right by my rooftop aerial cable. The scan feature would be useful...any ETA on when this will be available? Also the option to import a list of bookmarks e.g. from a simple properties file would be useful.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.38,0.146,397,73,11,1
+app_reviews_categorize_rating_using_review_1,app_reviews_categorize_rating_using_review,"Given this review: ""Great It's not fully optimised and has some issues with crashing but still a nice app  especially considering the price and it's open source.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.22,0.086,248,43,3,1
+app_reviews_categorize_rating_using_review_2,app_reviews_categorize_rating_using_review,"Given this review: ""Works on a Nexus 6p I'm still messing around with my hackrf but it works with my Nexus 6p  Trond usb-c to usb host adapter. Thanks!""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.23,0.09,238,45,4,1
+app_reviews_categorize_rating_using_review_3,app_reviews_categorize_rating_using_review,"Given this review: ""The bandwidth seemed to be limited to maximum 2 MHz or so. I tried to increase the bandwidth but not possible. I purchased this is because one of the pictures in the advertisement showed the 2.4GHz band with around 10MHz or more bandwidth. Is it not possible to increase the bandwidth? If not  it is just the same performance as other free APPs.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.42,0.164,452,82,8,1
+app_reviews_categorize_rating_using_review_4,app_reviews_categorize_rating_using_review,"Given this review: ""Works well with my Hackrf Hopefully new updates will arrive for extra functions""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.16,0.064,186,32,2,1
+app_reviews_categorize_rating_using_review_5,app_reviews_categorize_rating_using_review,"Given this review: ""Good job Tried a few . This has to be the most stable and best to my liking . And a whole world of settings to play with. However we are quite limited on frequency band width id like to see it lowered to 14.mhz if possible""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,True,0.0,0.28,0.132,329,66,6,2
+app_reviews_categorize_rating_using_review_6,app_reviews_categorize_rating_using_review,"Given this review: ""Working great on Nexus6""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.115,0.046,130,23,2,1
+app_reviews_categorize_rating_using_review_7,app_reviews_categorize_rating_using_review,"Given this review: ""Works with RTL and Nextbook Aries 8. Demod stops working if the scan width is changed requiring restart.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.19,0.074,211,37,4,1
+app_reviews_categorize_rating_using_review_8,app_reviews_categorize_rating_using_review,"Given this review: ""Works with RTL SDR Works but no audio when demodulating""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.145,0.058,162,29,2,1
+app_reviews_categorize_rating_using_review_9,app_reviews_categorize_rating_using_review,"Given this review: ""Awsome App! Easy to use  works great on Notes w / Realtek dongle.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.165,0.064,172,32,4,1
+app_reviews_categorize_rating_using_review_10,app_reviews_categorize_rating_using_review,"Given this review: ""I'll forgo the refund. But no go with Watson dongle... Nexus 9. Yet to try on Nexus 6p. So very disappointed!!! :-(""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.205,0.082,222,41,11,1
+app_reviews_categorize_rating_using_review_11,app_reviews_categorize_rating_using_review,"Given this review: ""looks like a great program  1 of its kind I don't have the necessary hardware to utilize it though.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.195,0.076,206,38,3,1
+app_reviews_categorize_rating_using_review_12,app_reviews_categorize_rating_using_review,"Given this review: ""This thing is great. I am at the bottom of the learning curve but in the few minutes I have played with it it seems like it will be easy to learn and to use. Just what I hoped for.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.3,0.118,287,59,5,1
+app_reviews_categorize_rating_using_review_13,app_reviews_categorize_rating_using_review,"Given this review: ""Crash when set a demodulation! :(""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.125,0.05,140,25,3,1
+app_reviews_categorize_rating_using_review_14,app_reviews_categorize_rating_using_review,"Given this review: ""Good Good""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.105,0.042,116,21,2,1
+app_reviews_categorize_rating_using_review_15,app_reviews_categorize_rating_using_review,"Given this review: ""Support for sdrplay This software works fine on rtl sdr upconverter.But doesn't support sdrplay.Hope you add this support in near future.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.215,0.08,244,40,5,1
+app_reviews_categorize_rating_using_review_16,app_reviews_categorize_rating_using_review,"Given this review: ""Nice Tested with Rtl SDR. Working fine although I saw weird behavior around 2.4Ghz. Not sure if this is the app. What is badly missing is some kind of bookmarks/favourites feature.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.26,0.1,287,50,7,1
+app_reviews_categorize_rating_using_review_17,app_reviews_categorize_rating_using_review,"Given this review: ""doesn't work with rtl-2832 Says it works with rtl devices but doesn't. never displays anything  even though the rtl 2832 works with other spectrum analyzers. no help files anywhere so good luck figuring out what's wrong!""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.28,0.11,327,55,5,1
+app_reviews_categorize_rating_using_review_18,app_reviews_categorize_rating_using_review,"Given this review: ""Sweet Pick your source device in settings. Default is hackrf. May need driver as well""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,True,0.0,0.12,0.068,192,34,4,2
+app_reviews_categorize_rating_using_review_19,app_reviews_categorize_rating_using_review,"Given this review: ""Great app! Works really well with Galaxy note 5""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.14,0.056,154,28,3,1
+app_reviews_categorize_rating_using_review_20,app_reviews_categorize_rating_using_review,"Given this review: ""The app looks good but does not work so far with lenovo a936 kitkat. the sdr might draw to much current. Tried a spit cable for extra power but it did not help so far.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.275,0.108,274,54,5,1
+app_reviews_categorize_rating_using_review_21,app_reviews_categorize_rating_using_review,"Given this review: ""Works great I am using HackRF One with this apps.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.15,0.058,156,29,3,1
+app_reviews_categorize_rating_using_review_22,app_reviews_categorize_rating_using_review,"Given this review: ""A God send! Awful interference problem with my 868MHz central heating system. 20min with this app and an rtlsdr dongle tracked the problem to an old controller with a near flat battery transmitting a continuous unmodulated carrier.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.285,0.112,338,56,5,1
+app_reviews_categorize_rating_using_review_23,app_reviews_categorize_rating_using_review,"Given this review: ""App Great but This app is great but the only thing that's missing is its ability to store frequencies and presets like the competing app.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.225,0.088,244,44,3,1
+app_reviews_categorize_rating_using_review_24,app_reviews_categorize_rating_using_review,"Given this review: ""awesome app  seems stable and runs well on Note 4 with RLT-SDR  can't wait to try it out on the HackRF One. Happy to support the developer!""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.235,0.092,246,46,4,1
+app_reviews_categorize_rating_using_review_25,app_reviews_categorize_rating_using_review,"Given this review: ""Simple and perfect About this software rtl sdr is very useful ... installed done. Thanks.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.17,0.068,196,34,7,1
+app_reviews_categorize_rating_using_review_26,app_reviews_categorize_rating_using_review,"Given this review: ""Samsung note 3 neo ok""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.12,0.048,128,24,2,1
+app_reviews_categorize_rating_using_review_27,app_reviews_categorize_rating_using_review,"Given this review: ""This works great so far. Any plans for support of Q branch direct sampling for HF reception on RTL SDR? Maybe the option is there and I missed it. Great app  keep up the great work.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.28,0.11,288,55,6,1
+app_reviews_categorize_rating_using_review_28,app_reviews_categorize_rating_using_review,"Given this review: ""Nice Work Wish it could transmit too on Hack""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.14,0.056,151,28,2,1
+app_reviews_categorize_rating_using_review_29,app_reviews_categorize_rating_using_review,"Given this review: ""Great application Work's well with my ZenFone 5""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.135,0.054,154,27,2,1
+app_reviews_categorize_rating_using_review_30,app_reviews_categorize_rating_using_review,"Given this review: ""Very nice. Great UI  works like a charm. If you have an NVIDIA shield  try spamming the connect/play button.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.195,0.076,215,38,5,1
+app_reviews_categorize_rating_using_review_31,app_reviews_categorize_rating_using_review,"Given this review: ""Additional info Used it w/RTL-SDR (R820T) on my phone (Moto G) also and it works great there too. I already had FM on this phone and now have NWS  taxis  Aviation  Marine  etc. Hopefully scanner update soon. Love it! Have it also on my new Chuwi HI8 dual-mode tablet so you can add that to the list ""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.385,0.154,406,77,6,1
+app_reviews_categorize_rating_using_review_32,app_reviews_categorize_rating_using_review,"Given this review: ""Fun app - A little tedious though I enjoy using this app but can be a bit tedious trying to get everything set and configured just right. Once your SDR dongle has been properly configured you can then enjoy using it. Nice little app :&gt;)""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.32,0.128,346,64,4,1
+app_reviews_categorize_rating_using_review_33,app_reviews_categorize_rating_using_review,"Given this review: ""Works Great. Works great on a 2015 Medion Lifetab S10346 (MD99282). 10.1"""""""""""""""""""""""""""""""". Android 5. Watson wideband 100Khz-2Ghz model W-SDRX1 rtl dongle based receiver. Mostly Amatuer Band and Airband use. HF and VHF-UHF receive is fine if you cn feed it from any half decent antenna farm  even works ok with indoor antenna systems with a bit more interference. It is possible to power the receiver from the tablet with the supplied usb otg cable but a otg cable with power in capablity is highly recommended. Great app  works as good as any windows  linux or mac sdr apps that I own. Fine Business to the developer. Wish that I could rate your app with more than 5 stars  makes it possible for me to go portable or mobile with the sdr without having to carry a laptop everywhere.""""""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.795,0.314,890,157,14,1
+app_reviews_categorize_rating_using_review_34,app_reviews_categorize_rating_using_review,"Given this review: ""Good Works well on Oneplus One  with and without a powered otg cable""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.16,0.064,175,32,2,1
+app_reviews_categorize_rating_using_review_35,app_reviews_categorize_rating_using_review,"Given this review: ""Works great with rtl Sdr and HTC one x Thanks very much.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.16,0.062,163,31,3,1
+app_reviews_categorize_rating_using_review_36,app_reviews_categorize_rating_using_review,"Given this review: ""Amazing A very useful app. I originally downloaded the free version from github  but decided to buy it here as the dev deserves the money.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.225,0.088,245,44,4,1
+app_reviews_categorize_rating_using_review_37,app_reviews_categorize_rating_using_review,"Given this review: ""Works well but would like added features The main additional feature I would like is a way to be able to adjust the spec an amplitude reference so that I can calibrate it to dBm.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.275,0.108,285,54,3,1
+app_reviews_categorize_rating_using_review_38,app_reviews_categorize_rating_using_review,"Given this review: ""Do I need to hack my phone for this application to work""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.155,0.062,162,31,2,1
+app_reviews_categorize_rating_using_review_39,app_reviews_categorize_rating_using_review,"Given this review: ""Works on Motorola Droid Mini. Very cool app. I would like to try and DF power line noise using this app coupled with the RTL-SDR dongle. nice job on the app!""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.255,0.1,264,50,6,1
+app_reviews_categorize_rating_using_review_40,app_reviews_categorize_rating_using_review,"Given this review: ""The most fun you can have with a dongle ;-) Works perfectly with my Oneplus One and a generic RTL-SDR dongle. Well worth paying a few pence for to support the author.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.26,0.102,273,51,4,1
+app_reviews_categorize_rating_using_review_41,app_reviews_categorize_rating_using_review,"Given this review: ""Does not work Did not work with my rtl-sdr""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.14,0.056,149,28,2,1
+app_reviews_categorize_rating_using_review_42,app_reviews_categorize_rating_using_review,"Given this review: ""Works ok Please improve tuning... Add possibility to tune like PC SDR software by flipping digit up/down. Currently it's too many taps to fine-tune""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.215,0.086,254,43,6,1
+app_reviews_categorize_rating_using_review_43,app_reviews_categorize_rating_using_review,"Given this review: ""Great app! Works flawlessly on my Samsung galaxy S5.""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.145,0.056,159,28,4,1
+app_reviews_categorize_rating_using_review_44,app_reviews_categorize_rating_using_review,"Given this review: ""Works great. Thanks!""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.115,0.044,127,22,4,1
+app_reviews_categorize_rating_using_review_45,app_reviews_categorize_rating_using_review,"Given this review: ""Great app Works well""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.115,0.046,127,23,2,1
+app_reviews_categorize_rating_using_review_46,app_reviews_categorize_rating_using_review,"Given this review: ""Working great with RTL Great job! This is working great with my RTL SDR. Well worth the money! Keep up the great work dev!""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.22,0.086,229,43,6,1
+app_reviews_categorize_rating_using_review_47,app_reviews_categorize_rating_using_review,"Given this review: ""Cool App Works great on my Galaxy Note 4 and Galaxy Tab Pro with my HackRF One. I've not yet tested with my RTL-SDR..""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.22,0.086,224,43,5,1
+app_reviews_categorize_rating_using_review_48,app_reviews_categorize_rating_using_review,"Given this review: ""How do I change sample on the app rate I am using a remote server""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.17,0.068,172,34,2,1
+app_reviews_categorize_rating_using_review_49,app_reviews_categorize_rating_using_review,"Given this review: ""Works on Nexus 9 Perfectly works on Nexus 9 with RTL-SDR!""
+Would you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?
+",True,False,False,False,False,0.0,0.155,0.06,164,30,3,1

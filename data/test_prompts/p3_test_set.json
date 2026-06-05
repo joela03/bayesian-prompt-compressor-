@@ -1,0 +1,38 @@
+[
+  {
+    "id": "super_glue_cb_GPT_3_style_0",
+    "source": "P3",
+    "task": "super_glue_cb_GPT_3_style",
+    "text": "It was a complex language. Not written down but handed down. One might say it was peeled down.\nQuestion: the language was peeled down True, False, or Neither?"
+  },
+  {
+    "id": "super_glue_cb_GPT_3_style_1",
+    "source": "P3",
+    "task": "super_glue_cb_GPT_3_style",
+    "text": "It is part of their religion, a religion I do not scoff at as it holds many elements which match our own even though it lacks the truth of ours. At one of their great festivals they have the ritual of driving out the devils from their bodies. First the drummers come on - I may say that no women are allowed to take part in this ritual and the ladies here will perhaps agree with me that they are fortunate in that omission.\nQuestion: no women are allowed to take part in this ritual True, False, or Neither?"
+  },
+  {
+    "id": "amazon_polarity_Is_this_product_review_positive_0",
+    "source": "P3",
+    "task": "amazon_polarity_Is_this_product_review_positive",
+    "text": "Is this product review positive?\nTitle: Stuning even for the non-gamer\nReview: This sound track was beautiful! It paints the senery in your mind so well I would recomend it even to people who hate vid. game music! I have played the game Chrono Cross but out of all of the games I have ever played it has the best music! It backs away from crude keyboarding and takes a fresher step with grate guitars and soulful orchestras. It would impress anyone who cares to listen! ^_^\nAnswer: "
+  },
+  {
+    "id": "amazon_polarity_Is_this_product_review_positive_1",
+    "source": "P3",
+    "task": "amazon_polarity_Is_this_product_review_positive",
+    "text": "Is this product review positive?\nTitle: The best soundtrack ever to anything.\nReview: I'm reading a lot of reviews saying that this is the best 'game soundtrack' and I figured that I'd write a review to disagree a bit. This in my opinino is Yasunori Mitsuda's ultimate masterpiece. The music is timeless and I'm been listening to it for years now and its beauty simply refuses to fade.The price tag on this is pretty staggering I must say, but if you are going to buy any cd for this much money, this is the only one that I feel would be worth every penny.\nAnswer: "
+  },
+  {
+    "id": "app_reviews_categorize_rating_using_review_0",
+    "source": "P3",
+    "task": "app_reviews_categorize_rating_using_review",
+    "text": "Given this review: \"Great app! The new version now works on my Bravia Android TV which is great as it's right by my rooftop aerial cable. The scan feature would be useful...any ETA on when this will be available? Also the option to import a list of bookmarks e.g. from a simple properties file would be useful.\"\nWould you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?\n"
+  },
+  {
+    "id": "app_reviews_categorize_rating_using_review_1",
+    "source": "P3",
+    "task": "app_reviews_categorize_rating_using_review",
+    "text": "Given this review: \"Great It's not fully optimised and has some issues with crashing but still a nice app  especially considering the price and it's open source.\"\nWould you recommend this app to a friend? Not at all, No, Maybe, Yes, or Definitely?\n"
+  }
+]

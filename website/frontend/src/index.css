@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: theme('colors.canvas');
+  color: theme('colors.ink');
+  font-family: theme('fontFamily.sans');
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Subtle fade for tab transitions */
+.fade-in {
+  animation: fadeIn 180ms ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(2px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slider track styling — built-in range, restyled */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: transparent;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  background: theme('colors.line');
+  border-radius: 9999px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 9999px;
+  background: theme('colors.ours');
+  margin-top: -6px;
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-track {
+  height: 4px;
+  background: theme('colors.line');
+  border-radius: 9999px;
+}
+input[type="range"]::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 9999px;
+  background: theme('colors.ours');
+  border: none;
+  cursor: pointer;
+}

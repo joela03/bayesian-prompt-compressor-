@@ -1,0 +1,13 @@
+{
+  "instruction_importance": 1.0,
+  "examples_importance": 0.013333333333333334,
+  "constraints_importance": 0.14,
+  "style_importance": 0.02666666666666667,
+  "context_importance": 0.02,
+  "optimal_num_examples": 0.1,
+  "optimal_instruction_length": 0.2825,
+  "example_length_correlation": 0.06424684013955052,
+  "mean_word_count": 68.39333333333333,
+  "median_word_count": 59.0,
+  "mean_components": 1.2
+}

@@ -1,0 +1,84 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "prompt-compress"
+version = "0.1.0"
+description = "Structural prompt compression with safety gating"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "joela03" }]
+keywords = ["prompt", "compression", "llm", "bayesian-optimization"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed",
+]
+
+dependencies = [
+    "numpy",
+    "scikit-learn",
+    "sentence-transformers",
+    "networkx",
+]
+
+[project.optional-dependencies]
+# RealEvaluator and the LLM-judge research path need openai. Most users of
+# the library don't.
+openai = ["openai>=1.0"]
+
+# Everything the research/ harnesses and scripts/ tools need on top of the
+# core library. Not installed by default.
+research = [
+    "openai>=1.0",
+    "python-dotenv",
+    "scipy",
+    "matplotlib",
+    "seaborn",
+    "pandas",
+    "datasets",
+    "llmlingua>=0.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/joela03/bayesian-prompt-compressor-"
+Repository = "https://github.com/joela03/bayesian-prompt-compressor-"
+Issues = "https://github.com/joela03/bayesian-prompt-compressor-/issues"
+
+[tool.hatch.build]
+include = [
+    "prompt_compress/**",
+    "tests/**",
+    "README.md",
+    "LICENSE",
+    "pyproject.toml",
+]
+exclude = [
+    "**/__pycache__/**",
+    "**/*.py[cod]",
+    ".gitignore",
+    "*.egg-info/**",
+    "dist/**",
+    "build/**",
+    "website/**",
+    "research/**",
+    "scripts/**",
+    "data/**",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["prompt_compress"]
+# data/p3_findings_adjusted.json is inside the package source so hatchling
+# includes it automatically. No force-include needed (and force-include would
+# shadow the editable install's package layout).

@@ -1,0 +1,30 @@
+# Secrets
+.env
+
+# Python bytecode / packaging
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# Virtualenvs
+.venv/
+venv/
+env/
+
+# OS / editor cruft
+.DS_Store
+.idea/
+.vscode/
+
+# Frontend dependencies / build metadata
+node_modules/
+*.tsbuildinfo
+
+# Research caches (regenerate via research/benchmark.py + research/evaluate.py)
+data/results/benchmark/*.json
+!data/results/benchmark/.gitkeep
